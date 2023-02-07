@@ -11,10 +11,11 @@
 CanCanCan
 
  # 準備 
-  $ rails _6.1.6_ new Meet -d postgresql
-  $ rails db:create
-  $ rails db:migrate
-  $ rails db:seed
+
+  $ rails _6.1.6_ new Meet -d postgresql  
+  $ rails db:create  
+  $ rails db:migrate  
+  $ rails db:seed  
 
  # アプリケーション実行
   $ rails s
