@@ -1,7 +1,7 @@
 
  # バージョン 
-Ruby 3.0.1
-Ruby on Rails 6.0.5
+  Ruby 3.0.1  
+  Ruby on Rails 6.0.5
 
  # 就業Termの技術
 お気に入り機能
