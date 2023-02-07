@@ -4,20 +4,20 @@
   Ruby on Rails 6.0.5
 
  # 就業Termの技術
-お気に入り機能
-devise
+  お気に入り機能
+  devise
 
  # カリキュラム外の技術#
 CanCanCan
 
  # 準備 
-$ rails _6.1.6_ new Meet -d postgresql
-$ rails db:create
-$ rails db:migrate
-$ rails db:seed
+  $ rails _6.1.6_ new Meet -d postgresql
+  $ rails db:create
+  $ rails db:migrate
+  $ rails db:seed
 
  # アプリケーション実行
-$ rails s
+  $ rails s
 
  # カタログ設計・テーブル定義書 
 
