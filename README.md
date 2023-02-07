@@ -35,4 +35,5 @@ https://drive.google.com/file/d/1lR9-hfb7psYljD5mHr461AxwBLJijwFO/view?usp=shari
 
 https://drive.google.com/file/d/1x4uRle7EYbRdW0dLqZMXYo_bVNs8IKEb/view?usp=sharing
 
-#遷移図![スクリーンショット 2023-02-07 11 22 22](https://user-images.githubusercontent.com/115207363/217133124-ca96be74-d709-4dc2-be0a-c47d87d3d933.png)
+ # 遷移図
+![スクリーンショット 2023-02-07 11 22 22](https://user-images.githubusercontent.com/115207363/217133124-ca96be74-d709-4dc2-be0a-c47d87d3d933.png)
