@@ -31,6 +31,7 @@ https://drive.google.com/file/d/1lR9-hfb7psYljD5mHr461AxwBLJijwFO/view?usp=shari
 
 ![スクリーンショット 2023-02-07 11 24 32](https://user-images.githubusercontent.com/115207363/217133362-eb4add21-0413-40f3-a3f4-9f43fd7bc2c6.png)
 ![スクリーンショット 2023-02-07 11 24 56](https://user-images.githubusercontent.com/115207363/217133368-e84ef918-1d93-4a3e-86e2-19f2a8b2e3b5.png)
+![スクリーンショット 2023-02-08 16 03 35](https://user-images.githubusercontent.com/115207363/217458119-e4b34645-3939-47f6-b0ee-9b3fd949e65a.png)
 
  # ER図
 
@@ -38,4 +39,6 @@ https://drive.google.com/file/d/1x4uRle7EYbRdW0dLqZMXYo_bVNs8IKEb/view?usp=shari
 
 
  # 遷移図
-![スクリーンショット 2023-02-07 11 22 22](https://user-images.githubusercontent.com/115207363/217133124-ca96be74-d709-4dc2-be0a-c47d87d3d933.png)
+ https://drive.google.com/file/d/1u0JPC0SNb9WLHFkuNdJfm0IMVkbnu05-/view?usp=sharing
+ 
+![スクリーンショット 2023-02-08 16 06 51](https://user-images.githubusercontent.com/115207363/217458747-777a8531-f4c0-472a-b916-55867a501513.png)
