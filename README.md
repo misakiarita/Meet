@@ -4,11 +4,11 @@
   Ruby on Rails 6.0.5
 
  # 就業Termの技術
-  お気に入り機能
+  お気に入り機能  
   devise
 
- # カリキュラム外の技術#
-CanCanCan
+ # カリキュラム外の技術
+  CanCanCan
 
  # 準備 
 
