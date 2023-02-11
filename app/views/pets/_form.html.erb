@@ -11,6 +11,14 @@
     </div>
   <% end %>
 
+  <%= form.fields_for :petpics do |pics| %>
+    <div class="field">
+    <%= pics.file_field :picture %>
+    <%= pics.hidden_field :picture_cache %>
+    </div>
+  <% end %>
+
+
   <div class="field">
     <%= form.label :pet_name %>
     <%= form.text_field :pet_name %>

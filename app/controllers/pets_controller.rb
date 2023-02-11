@@ -13,16 +13,17 @@ class PetsController < ApplicationController
   # GET /pets/new
   def new
     @pet = Pet.new
+    @pet.petpics.build
   end
-
+  
   # GET /pets/1/edit
   def edit
   end
-
+  
   # POST /pets or /pets.json
   def create
-    # @pet = Pet.new(pet_params)
     @pet = current_user.pets.build(pet_params)
+
     respond_to do |format|
       if @pet.save
         format.html { redirect_to pet_url(@pet), notice: "Pet was successfully created." }
@@ -65,6 +66,7 @@ class PetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pet_params
-      params.require(:pet).permit(:pet_name, :pet_address, :qualify_age, :status, :price)
+      params.require(:pet).permit(:pet_name, :pet_address, :qualify_age, :status, :price, petpics_attributes: %i[id picture picture_cache])
+      
     end
 end
