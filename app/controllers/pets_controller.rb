@@ -35,6 +35,7 @@ class PetsController < ApplicationController
     end
   end
 
+
   # PATCH/PUT /pets/1 or /pets/1.json
   def update
     respond_to do |format|

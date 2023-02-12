@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'pets#index'
-  resources :pets
+  resources :pets do
+    get :postfeature
+  end
   devise_for :users
 
   if Rails.env.development?
