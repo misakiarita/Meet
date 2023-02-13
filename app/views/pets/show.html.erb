@@ -11,8 +11,21 @@
   <%= @pet.status %>
   <strong>Pet price:</strong>
   <%= @pet.price %>
-
 </p>
+<% @features.each do |feature| %>
+  <strong>cat or dog:</strong>
+  <%= feature.dog_or_cat %>
+  <strong>color:</strong>
+  <%= feature.color %>
+  <strong>weight:</strong>
+  <%= feature.weight %>
+  <strong>Pet age:</strong>
+  <%= feature.pet_age %>
+  <strong>note:</strong>
+  <%= feature.note %>
+  <strong>Pet sex:</strong>
+  <%= feature.sex %>
+<% end %>
 
 <%= link_to 'Edit', edit_pet_path(@pet) %> |
 <%= link_to 'Back', pets_path %>

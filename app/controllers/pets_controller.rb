@@ -8,6 +8,7 @@ class PetsController < ApplicationController
 
   # GET /pets/1 or /pets/1.json
   def show
+    @features = @pet.features
   end
 
   # GET /pets/new
@@ -72,6 +73,7 @@ class PetsController < ApplicationController
     def set_pet
       @pet = Pet.find(params[:id])
     end
+
 
     # Only allow a list of trusted parameters through.
     def pet_params
