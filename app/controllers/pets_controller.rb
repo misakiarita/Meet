@@ -22,19 +22,26 @@ class PetsController < ApplicationController
   
   # POST /pets or /pets.json
   def create
+    @pet = Pet.new(pet_params)
     @pet = current_user.pets.build(pet_params)
 
     respond_to do |format|
       if @pet.save
-        format.html { redirect_to pet_url(@pet), notice: "Pet was successfully created." }
-        format.json { render :show, status: :created, location: @pet }
+        format.html { redirect_to pet_postfeature_path(@pet), notice: "Pet was successfully created." }
+        # format.json { render :show, status: :created, location: @pet }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @pet.errors, status: :unprocessable_entity }
+        # format.json { render json: @pet.errors, status: :unprocessable_entity }
       end
+
     end
   end
 
+  def postfeature
+    @pet = Pet.find(params[:pet_id])
+    @feature = @pet.features.build
+
+  end
 
   # PATCH/PUT /pets/1 or /pets/1.json
   def update
@@ -67,7 +74,7 @@ class PetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pet_params
-      params.require(:pet).permit(:pet_name, :pet_address, :qualify_age, :status, :price, petpics_attributes: %i[id picture picture_cache])
-      
+      params.require(:pet).permit(:pet_name, :pet_address, :qualify_age, :status, :price, 
+      petpics_attributes: %i[id picture picture_cache])     
     end
 end
