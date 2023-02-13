@@ -19,30 +19,31 @@ class PetsController < ApplicationController
   # GET /pets/1/edit
   def edit
   end
+
   
   # POST /pets or /pets.json
   def create
     @pet = Pet.new(pet_params)
     @pet = current_user.pets.build(pet_params)
-
+    
     respond_to do |format|
       if @pet.save
-        format.html { redirect_to pet_postfeature_path(@pet), notice: "Pet was successfully created." }
+        format.html { redirect_to pet_featurepost_path(@pet), notice: "Pet was successfully created." }
         # format.json { render :show, status: :created, location: @pet }
       else
         format.html { render :new, status: :unprocessable_entity }
         # format.json { render json: @pet.errors, status: :unprocessable_entity }
       end
-
+      
     end
   end
-
-  def postfeature
+  
+  
+  def featurepost
     @pet = Pet.find(params[:pet_id])
     @feature = @pet.features.build
-
   end
-
+  
   # PATCH/PUT /pets/1 or /pets/1.json
   def update
     respond_to do |format|

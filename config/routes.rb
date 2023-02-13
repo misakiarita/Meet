@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root to: 'pets#index'
   resources :pets do
-    get :postfeature
+    resources :features
+    get :featurepost
   end
   devise_for :users
 
