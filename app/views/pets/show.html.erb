@@ -11,6 +11,7 @@
   <%= @pet.status %>
   <strong>Pet price:</strong>
   <%= @pet.price %>
+  <%= link_to 'Edit', edit_pet_path(@pet) %> 
 </p>
 <% @features.each do |feature| %>
   <strong>cat or dog:</strong>
@@ -26,7 +27,6 @@
   <strong>Pet sex:</strong>
   <%= feature.sex %>
 <% end %>
-
-<%= link_to 'Edit', edit_pet_path(@pet) %> |
+<%= link_to 'featureEdit', edit_pet_feature_path(@features) %> 
 <%= link_to 'Back', pets_path %>
 

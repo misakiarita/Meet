@@ -1,4 +1,5 @@
-<%= form_with model: [@pet, @feature], url: pet_features_path(@pet)  do |f| %>
+<%= form_with model: [@pet, @feature] do |f| %>
+
   
   <%= f.label :dog_or_cat %>
   <%= f.text_area :dog_or_cat %>
