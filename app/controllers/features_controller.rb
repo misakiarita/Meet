@@ -1,9 +1,5 @@
 class FeaturesController < ApplicationController
   
-  # def new
-  #   @pet = Pet.find(params[:pet_id])
-  #   @feature = @pet.features.build
-  # end
 
   def create
     @feature = Feature.new(feature_params)
@@ -30,9 +26,6 @@ class FeaturesController < ApplicationController
   end
 
   private
-  # def set_feature
-  #   @features = features.pet.id
-  # end
 
   def feature_params
     params.require(:feature).permit(:dog_or_cat, :color, :weight, :pet_age, :note, :sex, :pet_id) 

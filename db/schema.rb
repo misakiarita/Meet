@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_12_075146) do
+ActiveRecord::Schema.define(version: 2023_02_13_141751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "pet_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pet_id"], name: "index_favorites_on_pet_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
 
   create_table "features", force: :cascade do |t|
     t.integer "dog_or_cat"
@@ -71,6 +80,8 @@ ActiveRecord::Schema.define(version: 2023_02_12_075146) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favorites", "pets"
+  add_foreign_key "favorites", "users"
   add_foreign_key "features", "pets"
   add_foreign_key "petpics", "pets"
   add_foreign_key "pets", "users"
