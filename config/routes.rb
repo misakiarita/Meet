@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: 'pets#index'
+  resources :pets do
+    resources :features
+    patch :feature
+    get :featurepost
+
+  end
+  devise_for :users
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"

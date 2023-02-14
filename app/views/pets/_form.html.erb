@@ -1,0 +1,50 @@
+<%= form_with(model: pet) do |form| %>
+  <% if pet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+
+      <ul>
+        <% pet.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.fields_for :petpics do |pics| %>
+    <div class="field">
+    <%= pics.file_field :picture %>
+    <%= pics.hidden_field :picture_cache %>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= form.label :pet_name %>
+    <%= form.text_field :pet_name %>
+  </div>
+
+  <div class="field">
+  <%= form.label :pet_address %>
+  <%= form.text_field :pet_address %>
+  </div>
+
+  <div class="field">
+  <%= form.label :qualify_age %>
+  <%= form.text_field :qualify_age %>
+  </div>
+
+  <div class="field">
+  <%= form.label :status %>
+  <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+  <%= form.label :price %>
+  <%= form.text_field :price %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

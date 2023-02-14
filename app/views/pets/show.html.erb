@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pet name:</strong>
+  <%= @pet.pet_name %>
+  <strong>Pet address:</strong>
+  <%= @pet.pet_address %>
+  <strong>Pet age:</strong>
+  <%= @pet.qualify_age %>
+  <strong>Pet status:</strong>
+  <%= @pet.status %>
+  <strong>Pet price:</strong>
+  <%= @pet.price %>
+  <%= link_to 'Edit', edit_pet_path(@pet) %> 
+</p>
+<% @features.each do |feature| %>
+  <strong>cat or dog:</strong>
+  <%= feature.dog_or_cat %>
+  <strong>color:</strong>
+  <%= feature.color %>
+  <strong>weight:</strong>
+  <%= feature.weight %>
+  <strong>Pet age:</strong>
+  <%= feature.pet_age %>
+  <strong>note:</strong>
+  <%= feature.note %>
+  <strong>Pet sex:</strong>
+  <%= feature.sex %>
+<% end %>
+<%= link_to 'featureEdit', edit_pet_feature_path(@features) %> 
+<%= link_to 'Back', pets_path %>
+
