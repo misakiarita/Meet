@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          mount_uploader :avatar, ImageUploader     
   has_many :pets       
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_pets, through: :favorites, source: :pet
 end
