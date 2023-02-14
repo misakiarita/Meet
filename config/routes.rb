@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root to: 'pets#index'
-  resources :users, only: [:show]
+  resources :users do
+    member do
+      get :favorite_pet
+    end
+  end
   resources :pets do
     resources :features
     patch :feature
