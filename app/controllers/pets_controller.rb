@@ -9,6 +9,7 @@ class PetsController < ApplicationController
   # GET /pets/1 or /pets/1.json
   def show
     @features = @pet.features
+    @favorite = current_user.favorites.find_by(pet_id: @pet.id)
   end
 
   # GET /pets/new
