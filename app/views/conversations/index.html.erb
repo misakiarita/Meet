@@ -1,0 +1,14 @@
+<table class="table table-hover">
+  <thead>
+    <h2>メッセージ一覧</h2>
+  </thead>
+  <tbody>
+    <% @conversations.each do |conversation| %>
+      <td>
+          <b>部屋番号</b>
+          <%= conversation.id %>
+          <%= link_to 'この案件のメッセージ', conversation_messages_path(conversation) %>
+      </td>
+    <% end %>
+  </tbody>
+</table>

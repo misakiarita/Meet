@@ -6,6 +6,18 @@
     <%= link_to 'お気に入りする', favorites_path(pet_id: @pet.id), method: :post, class: 'btn btn-primary' %>
   <% end %>
 <% end %>
+<br>
+書いた人:<%= @user.name %>
+  <% if @user.id != current_user.id %>
+    <% if @conversation.present? %>
+      <%= link_to 'メッセージ一覧へ', conversations_path %>
+    <% else %>
+      <div class="item">
+        <%= link_to 'メッセージルーム作成', conversations_path(pet_id: @pet.id, member_ids: [current_user.id, @user.id]), method: :post, class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  <% end %>
+
 <p>
   <strong>Pet name:</strong>
   <%= @pet.pet_name %>
