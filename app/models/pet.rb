@@ -9,4 +9,6 @@ class Pet < ApplicationRecord
   # 該当petのidをupet_idとして持つconversationのレコードが参照可能 => それに紐づくuser(conversationの作成者)がわかる
   has_many :conversations_users, through: :conversations, source: :pet
   accepts_nested_attributes_for :petpics
+
+  # scope :age_search, -> (user_age) {where(qualify_age: <= user_age)}
 end

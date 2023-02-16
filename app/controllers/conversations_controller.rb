@@ -5,7 +5,6 @@ class ConversationsController < ApplicationController
     #current_userのConversationだけにする
     rooms = Member.where(user_id: current_user).pluck(:conversation_id)
     @conversations = Conversation.where(id: rooms)
-
   end
 
   def create
