@@ -1,0 +1,18 @@
+<%= form_with(model: @evaluation) do |form| %>
+
+    <div class="field">
+    <%= form.label :point %>
+    <%= form.text_field :point %>
+    </div>
+    <div class="field">
+    <%= form.label :evaluation_comment %>
+    <%= form.text_field :evaluation_comment %>
+    </div>
+    <div class="field">
+    <%= form.hidden_field :organization_user_id, value: @organization_user_id %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+<% end %>

@@ -2,8 +2,10 @@ class ConversationsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    #curren_userのConversationだけにする
-    @conversations = Conversation.all
+    #current_userのConversationだけにする
+    rooms = Member.where(user_id: current_user).pluck(:conversation_id)
+    @conversations = Conversation.where(id: rooms)
+
   end
 
   def create
@@ -12,6 +14,6 @@ class ConversationsController < ApplicationController
     @member.each do |m|
       member = conversation.members.create!(user_id: m)
     end
-    redirect_to conversations_path, notice: "投稿者に連絡してみましょう！"
+    redirect_to conversations_path
   end
 end

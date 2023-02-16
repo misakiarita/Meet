@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     get :featurepost
   end
 
+  resources :evaluations
+
   resources :favorites, only: [:create, :destroy]
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
