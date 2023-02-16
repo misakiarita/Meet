@@ -10,6 +10,8 @@ class PetsController < ApplicationController
   def show
     @features = @pet.features
     @favorite = current_user.favorites.find_by(pet_id: @pet.id)
+    @user = @pet.user
+    @conversation = current_user.conversations.find_by(pet_id: @pet.id) 
   end
 
   # GET /pets/new

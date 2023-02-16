@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root to: 'pets#index'
   
   devise_for :users
@@ -6,6 +7,10 @@ Rails.application.routes.draw do
     member do
         get :favorite_pet
     end
+  end
+  
+  resources :conversations do
+    resources :messages
   end
 
   resources :pets do
