@@ -11,11 +11,14 @@
   </head>
 
   <body>
-
+  <li><%= link_to 'TOP', root_path %></li>
 <% if user_signed_in? %>
   <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
   <li><%= link_to "Profile", user_path(current_user.id) %></li>
   <li><%= link_to "お気に入り", favorite_pet_user_path(current_user.id) %></li>
+  <li><%= link_to "会話部屋", conversations_path %></li>
+ 
+  
 <% else %>
   <li><%= link_to 'ログイン', new_user_session_path %></li>
   <li><%= link_to 'サインアップ', new_user_registration_path %></li>

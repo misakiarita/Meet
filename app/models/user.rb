@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :pets       
   has_many :favorites, dependent: :destroy
   has_many :favorite_pets, through: :favorites, source: :pet
+  has_many :evaluations       
+
 
   #　会話部屋をつくった人が誰かがわかる
   has_many :conversations
