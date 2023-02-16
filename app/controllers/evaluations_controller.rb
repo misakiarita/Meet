@@ -14,7 +14,7 @@ class EvaluationsController < ApplicationController
   private
 
   def evaluation_params
-    params.require(:evaluation).permit(:evaluation_comment, :organization_user_id,  :point )
+    params.require(:evaluation).permit(:evaluation_comment, :organization_user_id, :point )
   end
 end
 
