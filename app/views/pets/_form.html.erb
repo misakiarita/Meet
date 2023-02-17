@@ -25,23 +25,24 @@
   </div>
 
   <div class="field">
-  <%= form.label :pet_address %>
-  <%= form.text_field :pet_address %>
+    <%= form.label :pet_address %>
+    <%= form.select :pet_address, Pet.addresses.keys %>
   </div>
 
   <div class="field">
-  <%= form.label :qualify_age %>
-  <%= form.text_field :qualify_age %>
+    <%= form.label :qualify_age %>
+    <%= form.number_field :qualify_age, min:1 %>
   </div>
 
   <div class="field">
   <%= form.label :status %>
-  <%= form.text_field :status %>
+  <%= form.select :status, Pet.statuses.keys %>
+
   </div>
 
   <div class="field">
   <%= form.label :price %>
-  <%= form.text_field :price %>
+  <%= form.number_field :price, min:0 %>
   </div>
 
   <div class="actions">

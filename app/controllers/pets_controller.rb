@@ -3,10 +3,11 @@ class PetsController < ApplicationController
 
   # GET /pets or /pets.json
   def index
+
     if params[:pet].present?
       user_age = params[:pet][:qualify_age]
-      # @pets = Pet.age_search
       @pets = Pet.where("qualify_age >= #{user_age}")
+      # @pets = Pet.age_search
     else
       @pets = Pet.all
     end
