@@ -3,7 +3,10 @@
 <h1>Pets</h1>
 <%= form_with( model:Pet.new, local: true, method: :get, url: pets_path) do |f| %>
   <table>
-  <th>qualify age: <%= f.text_field :qualify_age %></th>
+  <th>種類: <%= f.select :dog_or_cat, [[""], ["犬"], ["猫"]] %></th>
+  <th>qualify age: <%= f.text_field :qualify_age, min:0 %></th>
+  <th>都道府県: <%= f.select :pet_address, Pet.addresses.keys, include_blank: true %></th>
+
   </table>
   <%= f.submit '検索', class: 'btn btn-primary' %>
 <% end %>
@@ -28,6 +31,7 @@
         <td><%= pet.qualify_age %></td>
         <td><%= pet.status %></td>
         <td><%= pet.price %></td>
+        
         <% if Feature.find_by(pet_id: pet.id).present? %>  
         <% @feature = Feature.find_by(pet_id: pet.id) %>
         <td><%= @feature.dog_or_cat %></td>

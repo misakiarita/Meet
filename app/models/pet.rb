@@ -5,7 +5,7 @@ class Pet < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: :user
   enum address:{
-    "---":0,
+    選択してくだい:nil,
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
     茨城県:8,栃木県:9,群馬県:10,埼玉県:11,千葉県:12,東京都:13,神奈川県:14,
     新潟県:15,富山県:16,石川県:17,福井県:18,山梨県:19,長野県:20,
@@ -19,11 +19,18 @@ class Pet < ApplicationRecord
 
   enum status:{募集中: 1, お見合い中: 2, 譲渡決定:3}
 
+
+
   # 会話ルームがどのpet(案件)と紐づいているかがわかる
   has_many :conversations, dependent: :destroy
   # 該当petのidをupet_idとして持つconversationのレコードが参照可能 => それに紐づくuser(conversationの作成者)がわかる
   has_many :conversations_users, through: :conversations, source: :pet
   accepts_nested_attributes_for :petpics
 
-  # scope :age_search, -> (user_age) {where(qualify_age: <= user_age)}
+  scope :below_age, -> (max_age) {where("qualify_age >= ?", max_age)}
+  scope :address_search, -> (address) {where(pet_address: address)}
+  scope :species_search, -> (species) { joins(:features).where(features: {dog_or_cat: species}) }
+  scope :age_species, -> (max_age, species) { 
+    joins(:features).where("qualify_age <= ?", max_age).where(features: {dog_or_cat: species}) }
+
 end
