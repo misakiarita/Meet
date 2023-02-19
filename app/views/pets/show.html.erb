@@ -15,7 +15,7 @@
       <%= link_to 'メッセージ一覧へ', conversations_path %>
     <% else %>
       <div class="item">
-        <%= link_to 'メッセージルーム作成', conversations_path(pet_id: @pet.id, member_ids: [current_user.id, @user.id]), method: :post, class: 'btn btn-primary' %>
+        <%= link_to 'メッセージルームを送る', conversations_path(pet_id: @pet.id, member_ids: [current_user.id, @user.id]), method: :post, class: 'btn btn-primary' %>
       </div>
     <% end %>
   <% end %>
@@ -48,6 +48,15 @@
   <%= feature.sex %>
 <% end %>
 <%= link_to '詳細編集', edit_pet_feature_path(@features) %> 
+<br>
+<% if current_user.present? %>
+  <% if current_user ==  @user%>
+
+    <td><%= link_to 'Show', @pet %></td>
+    <td><%= link_to 'Edit', edit_pet_path(@pet) %></td>
+    <td><%= link_to 'Destroy', @pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+<% end %>
 <br>
 <%= link_to 'Back', pets_path %>
 

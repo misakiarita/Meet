@@ -1,6 +1,7 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, only: [:new, :create]
+  authorize_resource
   # GET /pets or /pets.json
   def index
     @pets = Pet.all
@@ -47,6 +48,11 @@ class PetsController < ApplicationController
   
   # GET /pets/1/edit
   def edit
+    if @pet.user_id == current_user.id
+      render :edit
+    else
+      redirect_to root_path
+    end
   end
 
   
@@ -75,13 +81,15 @@ class PetsController < ApplicationController
   
   # PATCH/PUT /pets/1 or /pets/1.json
   def update
-    respond_to do |format|
-      if @pet.update(pet_params)
-        format.html { redirect_to pet_url(@pet), notice: "Pet was successfully updated." }
-        format.json { render :show, status: :ok, location: @pet }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @pet.errors, status: :unprocessable_entity }
+    if @pet.user_id == current_user.id
+      respond_to do |format|
+        if @pet.update(pet_params)
+          format.html { redirect_to pet_url(@pet), notice: "Pet was successfully updated." }
+          format.json { render :show, status: :ok, location: @pet }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @pet.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
