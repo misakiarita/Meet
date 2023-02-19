@@ -34,9 +34,7 @@
         
         <% if Feature.find_by(pet_id: pet.id).present? %>  
         <% @feature = Feature.find_by(pet_id: pet.id) %>
-        <td><%= @feature.dog_or_cat %></td>
-        <% else %>
-        <td>詳細はありません。</td>        
+        <td><%= @feature.dog_or_cat %></td>        
         <% end %>
   <% if current_user.present? %>
         <td><%= link_to '詳細ページ', pet %></td>
