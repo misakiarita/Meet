@@ -5,3 +5,6 @@
 <p>ロール : <%= @user.role %></p>
 
 <%= link_to "お気に入り", favorite_pet_user_path(current_user.id) %>
+<% if @user.admin? %>
+<%= link_to "管理者メニュー", admin_users_path %>
+<% end %>

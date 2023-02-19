@@ -8,7 +8,10 @@ Rails.application.routes.draw do
         get :favorite_pet
     end
   end
-  
+  namespace :admin do
+    resources :users
+  end
+
   resources :conversations do
     resources :messages
   end

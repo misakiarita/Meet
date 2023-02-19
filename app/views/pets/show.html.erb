@@ -31,7 +31,11 @@
   <%= @pet.status %>
   <strong>Pet price:</strong>
   <%= @pet.price %>
-  <%= link_to '基本情報編集', edit_pet_path(@pet) %> 
+  <% if current_user.present? %>
+    <% if current_user ==  @user%>
+      <%= link_to '基本情報編集', edit_pet_path(@pet) %> 
+    <% end %>
+  <% end %>
 </p>
 <% @features.each do |feature| %>
   <strong>cat or dog:</strong>
@@ -47,14 +51,16 @@
   <strong>Pet sex:</strong>
   <%= feature.sex %>
 <% end %>
-<%= link_to '詳細編集', edit_pet_feature_path(@features) %> 
+
+<% if current_user.present? %>
+  <% if current_user ==  @user%>
+    <%= link_to '詳細編集', edit_pet_feature_path(@features) %> 
+  <% end %>
+<% end %>
 <br>
 <% if current_user.present? %>
   <% if current_user ==  @user%>
-
-    <td><%= link_to 'Show', @pet %></td>
-    <td><%= link_to 'Edit', edit_pet_path(@pet) %></td>
-    <td><%= link_to 'Destroy', @pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to '削除', @pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
 <% end %>
 <br>
