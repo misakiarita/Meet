@@ -1,0 +1,20 @@
+<h1>ユーザー 一覧画面(管理者)</h1>
+<body>
+<table class="table table-striped table-bordered">
+<head>
+<th>名前</th>
+<th>メールアドレス</th>
+<th>評価</th>
+</head>
+<% @users.each do |user| %>
+  <tr class="user_row" >
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td>ここに評価を出力</td>
+  <td><%= link_to 'ユーザー情報', admin_user_path(user) %></td>
+  <td><%= link_to 'ユーザー削除', admin_user_path(user), method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+  </tr>
+<% end %>
+</table>
+
+</body>

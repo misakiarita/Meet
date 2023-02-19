@@ -15,7 +15,7 @@
       <%= link_to 'メッセージ一覧へ', conversations_path %>
     <% else %>
       <div class="item">
-        <%= link_to 'メッセージルーム作成', conversations_path(pet_id: @pet.id, member_ids: [current_user.id, @user.id]), method: :post, class: 'btn btn-primary' %>
+        <%= link_to 'メッセージルームを送る', conversations_path(pet_id: @pet.id, member_ids: [current_user.id, @user.id]), method: :post, class: 'btn btn-primary' %>
       </div>
     <% end %>
   <% end %>
@@ -31,7 +31,11 @@
   <%= @pet.status %>
   <strong>Pet price:</strong>
   <%= @pet.price %>
-  <%= link_to '基本情報編集', edit_pet_path(@pet) %> 
+  <% if current_user.present? %>
+    <% if current_user ==  @user%>
+      <%= link_to '基本情報編集', edit_pet_path(@pet) %> 
+    <% end %>
+  <% end %>
 </p>
 <% @features.each do |feature| %>
   <strong>cat or dog:</strong>
@@ -47,7 +51,18 @@
   <strong>Pet sex:</strong>
   <%= feature.sex %>
 <% end %>
-<%= link_to '詳細編集', edit_pet_feature_path(@features) %> 
+
+<% if current_user.present? %>
+  <% if current_user ==  @user%>
+    <%= link_to '詳細編集', edit_pet_feature_path(@features) %> 
+  <% end %>
+<% end %>
+<br>
+<% if current_user.present? %>
+  <% if current_user ==  @user%>
+    <td><%= link_to '削除', @pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+<% end %>
 <br>
 <%= link_to 'Back', pets_path %>
 
