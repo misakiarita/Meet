@@ -15,11 +15,12 @@ Rails.application.routes.draw do
 
   resources :pets do
     resources :features
-    patch :feature
     get :featurepost
   end
 
   resources :evaluations
+
+
 
   resources :favorites, only: [:create, :destroy]
   if Rails.env.development?

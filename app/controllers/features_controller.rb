@@ -16,12 +16,11 @@ class FeaturesController < ApplicationController
   end
 
   def update
-
     @feature = Feature.find(params[:id])
     if @feature.update(feature_params)
       redirect_to pets_path, notice: "Your Feature was edited!"   
     else
-      redirect_back(fallback_location: root_path)
+      render :edit
     end
   end
 

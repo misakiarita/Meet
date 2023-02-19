@@ -1,26 +1,25 @@
-<%= form_with model: [@pet, @feature] do |f| %>
-
+<%= form_with model: [@pet, @feature]  do |f| %>
   
   <%= f.label :dog_or_cat %>
-  <%= f.text_area :dog_or_cat %>
+  <%= f.select :dog_or_cat, Feature.species.keys %>
 
   <%= f.label :color %>
-  <%= f.text_area :color %>
+  <%= f.text_field :color %>
   
   <%= f.label :weight %>
-  <%= f.text_area :weight %>
+  <%= f.number_field :weight, min:0 %>kg
   
   <%= f.label :pet_age %>
-  <%= f.text_area :pet_age %>
+  <%= f.number_field :pet_age %>歳
   
   <%= f.label :note %>
   <%= f.text_area :note %>
   
   <%= f.label :sex %>
-  <%= f.text_area :sex %>
+  <%= f.select :sex, Feature.sexes.keys %>
 
   <%= f.hidden_field :pet_id, value: @pet.id %>
  
-
-  <%= f.submit "SEND" %>
+<br>
+  <%= f.submit "submit" %>
 <% end %>

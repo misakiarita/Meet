@@ -16,8 +16,8 @@
   <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
   <li><%= link_to "Profile", user_path(current_user.id) %></li>
   <li><%= link_to "お気に入り", favorite_pet_user_path(current_user.id) %></li>
-  <li><%= link_to "会話部屋", conversations_path %></li>
- 
+  <li><%= link_to "参加チャット", conversations_path %></li>
+  <li><%= link_to 'プロフィール編集', edit_user_registration_path(current_user.id) %></li>
   
 <% else %>
   <li><%= link_to 'ログイン', new_user_session_path %></li>
