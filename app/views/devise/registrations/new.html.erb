@@ -35,7 +35,7 @@
 
   <div class="field">
   <%= f.label :role %>
-  <%= f.select :role, User.roles.keys %>
+  <%= f.select :role, User.limited_roles.keys %>
   </div>
 
   <div class="field">
