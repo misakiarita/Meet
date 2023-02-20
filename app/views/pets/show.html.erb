@@ -21,6 +21,14 @@
   <% end %>
 
 <p>
+<% @pet.petpics.each do |pic| %>
+  <% if pic.picture.present? %>  
+    <%= image_tag(pic.picture.url) %>
+  <% else %>
+    <div>写真の投稿はありません</div>
+    <% end %>
+    <% end %>
+    <br>
   <strong>Pet name:</strong>
   <%= @pet.pet_name %>
   <strong>Pet address:</strong>
