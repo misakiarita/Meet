@@ -13,6 +13,7 @@
   <table>
   <thead>
     <tr>
+      <th>Picture</th>
       <th>Pet name</th>
       <th>Pet address</th>
       <th>Qualify age</th>
@@ -24,8 +25,17 @@
   </thead>
 
   <tbody>
+  <tr>
     <% @pets.each do |pet| %>
-      <tr>
+      <td>
+        <% pet.petpics.each do |pic| %>
+          <% if pic.picture.present? %>  
+            <%= image_tag(pic.picture.url) %>
+          <% else %>
+            <div>写真の投稿はありません</div>
+          <% end %>
+        <% end %>
+      </td>
         <td><%= pet.pet_name %></td>
         <td><%= pet.pet_address %></td>
         <td><%= pet.qualify_age %></td>

@@ -3,34 +3,34 @@ class PetsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   authorize_resource
   # GET /pets or /pets.json
-  def index
-    @pets = Pet.all
-    if params[:pet].present?   
-      user_age = params[:pet][:qualify_age]
-      species = params[:pet][:dog_or_cat]
-      address = params[:pet][:pet_address]
-    if species.present? && user_age.present? && address.present?
-      pets = Pet.age_species(user_age,species)
-      @pets = pets.address_search(address)
-    elsif species.present? && address.present?
-      pets = Pet.species_search(species)
-      @pets = pets.address_search(address)
-    elsif user_age.present? && address.present?
-      pets = Pet.below_age(user_age)
-      @pets = pets.address_search(address)  
-    elsif address.present?
-      @pets = Pet.address_search(address)
-    elsif species.present? && user_age.present?
-      @pets = Pet.age_species(user_age,species)
-    elsif species.present?
-      @pets = Pet.species_search(species)
-    elsif user_age.present?
-      @pets = Pet.below_age(user_age)
-
-    end    
-  end
+    def index
+      @pets = Pet.all.includes(:petpics)
+ 
+      if params[:pet].present?   
+          user_age = params[:pet][:qualify_age]
+          species = params[:pet][:dog_or_cat]
+          address = params[:pet][:pet_address]
+        if species.present? && user_age.present? && address.present?
+          pets = Pet.age_species(user_age,species)
+          @pets = pets.address_search(address)
+        elsif species.present? && address.present?
+          pets = Pet.species_search(species)
+          @pets = pets.address_search(address)
+        elsif user_age.present? && address.present?
+          pets = Pet.below_age(user_age)
+          @pets = pets.address_search(address)  
+        elsif address.present?
+          @pets = Pet.address_search(address)
+        elsif species.present? && user_age.present?
+          @pets = Pet.age_species(user_age,species)
+        elsif species.present?
+          @pets = Pet.species_search(species)
+        elsif user_age.present?
+          @pets = Pet.below_age(user_age)
+        end    
+      end
   
-  end
+    end
 
   # GET /pets/1 or /pets/1.json
   def show

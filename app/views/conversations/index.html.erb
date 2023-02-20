@@ -5,8 +5,10 @@
   <tbody>
     <% @conversations.each do |conversation| %>
       <td>
-          <b>部屋番号</b>
-          <%= conversation.id %>
+          <b>ペットの名前</b>
+          <% @pet.each do |pet| %>
+          <%= pet.pet_name %>
+          <% end %>
           <%= link_to 'この案件のメッセージ', conversation_messages_path(conversation) %>
       </td>
     <% end %>
