@@ -1,13 +1,20 @@
 Rails.application.routes.draw do
 
-  root to: 'pets#index'
+  root 'top#index'
+
+  
   
   devise_for :users
+  post 'guest_login', to: 'top#guest_login'
+  post 'admin_guest_login', to: 'top#admin_guest_login'
+
+
   resources :users do
     member do
-        get :favorite_pet
+      get :favorite_pet
     end
   end
+  
   namespace :admin do
     resources :users
   end
