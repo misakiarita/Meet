@@ -21,6 +21,21 @@ class User < ApplicationRecord
     沖縄県:47
   }
 
+  # ゲストログイン
+  def self.guest
+    user = find_or_create_by!(email: "guest@example.com", name: 'ゲスト', address: 2, user_age: 30, role: 2) do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+    user
+  end
+
+  def self.admin_guest
+    user = find_or_create_by!(email: "admin_guest@example.com", name: 'ゲスト', address: 3, user_age: 30, role: 3) do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+    user
+  end
+
   #　会話部屋をつくった人が誰かがわかる
   has_many :conversations
   #　一対多：memberテーブルでconversation_idとuser_idが紐づいていることでどの会話部屋に所属しているのかがわかる
