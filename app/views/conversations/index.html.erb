@@ -4,13 +4,11 @@
   </thead>
   <tbody>
     <% @conversations.each do |conversation| %>
-      <td>
           <b>ペットの名前</b>
-          <% @pet.each do |pet| %>
-          <%= pet.pet_name %>
-          <% end %>
+          <%= Pet.find(conversation.pet_id).pet_name %>
+          <br>
           <%= link_to 'この案件のメッセージ', conversation_messages_path(conversation) %>
-      </td>
+          <br>
     <% end %>
   </tbody>
 </table>

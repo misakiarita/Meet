@@ -5,8 +5,9 @@ class ConversationsController < ApplicationController
     #current_userのConversationだけにする
     rooms = Member.where(user_id: current_user).pluck(:conversation_id)
     @conversations = Conversation.where(id: rooms)
-    conversation = Conversation.where(user_id: current_user.id).pluck(:pet_id)
-    @pet = Pet.find(conversation)
+    # conversation = @conversations.pluck(:pet_id)
+    # @pets = Pet.find(conversation.find(pet_id))
+    # binding.pry
   end
 
   def create
