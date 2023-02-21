@@ -30,9 +30,24 @@ ja:
         address: "住所"
         user_age: "年齢"
         signup: "新規登録"
+      edit:
+        email: "メールアドレス"
+        avatar: "顔写真"
+        name: "名前"
+        role: "用途"
+        address: "住所"
+        user_age: "年齢"
+        profile: "プロフィール"
+        name: "名前"
+        role: "区分"
+        address: "住所"
+        user_age: "年齢"
+        update: "変更保存"
     sessions:
       signed_in: 'ログインしました。'
       signed_out: 'ログアウトしました。'
+      new: 
+        login: 'ログイン'
     unlocks:
       send_instructions: 'アカウントのロック解除方法をメールで送信しました。'
       unlocked: 'アカウントがロック解除されました。'

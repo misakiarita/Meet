@@ -20,11 +20,5 @@ class ApplicationController < ActionController::Base
   end
 
   private
-  
-  # def guest_user(role)
-  #   @guest_user ||= {}
-  #   @guest_user[role] ||= User.guest(role)
-  #   session["#{role}_guest_user_id".to_sym] ||= @guest_user[role].id
-  #   @guest_user[role]
-  # end
+ 
 end
