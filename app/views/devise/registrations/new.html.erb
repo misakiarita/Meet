@@ -1,17 +1,16 @@
-<h2>Sign up</h2>
 
-
+<h2><%= t('devise.registrations.new.signup') %></h2>
 <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
 <%= render "devise/shared/error_messages", resource: resource %>
 
 <div class="field">
-    <%= f.label :avatar %><br />
+    <%= f.label t('devise.registrations.new.avatar') %><br />
     <%= f.file_field :avatar %>
     <%= f.hidden_field :avatar_cache %>
   </div>
 
   <div class="field">
-  <%= f.label :name %><br />
+  <%= f.label t('devise.registrations.new.name') %><br />
   <%= f.text_field :name, autofocus: true %>
   </div>
   
@@ -34,29 +33,29 @@
   </div>
 
   <div class="field">
-  <%= f.label :role %>
+  <%= f.label t('devise.registrations.new.role') %>
   <%= f.select :role, User.limited_roles.keys %>
   </div>
 
   <div class="field">
-  <%= f.label :address %>
+  <%= f.label t('devise.registrations.new.address') %>
   <%= f.select :address, User.addresses.keys %>
   </div>
 
   <div class="field">
-  <%= f.label :user_age %><br />
+  <%= f.label t('devise.registrations.new.user_age') %><br />
   <%= f.number_field :user_age, min:1, autofocus: true %>
   </div>
 
   <div class="field">
-  <%= f.label :profile %><br />
+  <%= f.label  t('devise.registrations.new.profile') %><br />
   <%= f.text_area :profile, autofocus: true %>
   </div>
 
 
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit t('devise.registrations.new.signup') %>
   </div>
 <% end %>
 
