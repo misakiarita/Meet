@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<div class="view_container"> 
 <% unless @pet.user_id == current_user.id %>
 
   <%= link_to 'この投稿のユーザーを評価する', new_evaluation_path(organization_user_id: @pet.user_id), method: :get %>
@@ -31,14 +31,16 @@
     <br>
   <strong>Pet name:</strong>
   <%= @pet.pet_name %>
+  <br>
   <strong>Pet address:</strong>
   <%= @pet.pet_address %>
   <strong>qualify age:</strong>
-  <%= @pet.qualify_age %>
+  <%= @pet.qualify_age %>歳
   <strong>Pet status:</strong>
   <%= @pet.status %>
   <strong>Pet price:</strong>
-  <%= @pet.price %>
+  <%= @pet.price %>円
+  <br>
   <% if current_user.present? %>
     <% if current_user ==  @user%>
       <%= link_to '基本情報編集', edit_pet_path(@pet) %> 
@@ -51,15 +53,16 @@
   <strong>color:</strong>
   <%= feature.color %>
   <strong>weight:</strong>
-  <%= feature.weight %>
+  <%= feature.weight %>kg
   <strong>Pet age:</strong>
-  <%= feature.pet_age %>
-  <strong>note:</strong>
-  <%= feature.note %>
+  <%= feature.pet_age %>歳
   <strong>Pet sex:</strong>
   <%= feature.sex %>
+  <br>
+  <strong>note:</strong>
+  <%= feature.note %>
 <% end %>
-
+<div class="view_container"> 
 <% if current_user.present? %>
   <% if current_user ==  @user%>
     <%= link_to '詳細編集', edit_pet_feature_path(@features) %> 

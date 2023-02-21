@@ -16,7 +16,6 @@
  .container {
   display: flex;
   flex-wrap: wrap;
-  
 }
 
 .content {
@@ -24,4 +23,25 @@
   box-sizing: border-box;
   padding: 10px;
   text-align:center;
+}
+
+.header {
+  display: flex;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.8;
+  max-width: 1656px;
+}
+
+li {
+  list-style: none;
+  margin-right: 20px;
+}
+
+.view_container{
+  text-align: center;
+}
+
+.admintable{
+  margin: 0 auto;
 }
