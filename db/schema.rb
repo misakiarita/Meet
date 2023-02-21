@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_17_061341) do
+ActiveRecord::Schema.define(version: 2023_02_21_014703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 2023_02_17_061341) do
 
   create_table "pets", force: :cascade do |t|
     t.string "pet_name"
-    t.string "pet_address"
+    t.integer "pet_address"
     t.integer "qualify_age"
     t.integer "status"
     t.integer "price"
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 2023_02_17_061341) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "name", null: false
-    t.string "address", null: false
+    t.integer "address", null: false
     t.text "avatar"
     t.integer "role", null: false
     t.text "profile"
