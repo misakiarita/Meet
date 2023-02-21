@@ -1,7 +1,7 @@
 <%= form_with model: [@pet, @feature], url: pet_features_path(@pet)  do |f| %>
   
   <%= f.label :dog_or_cat %>
-  <%= f.select :dog_or_cat, Feature.species.keys %>
+  <%= f.select :dog_or_cat, Feature.dog_or_cats.keys %>
 
   <%= f.label :color %>
   <%= f.text_field :color %>

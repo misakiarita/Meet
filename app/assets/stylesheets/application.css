@@ -25,3 +25,22 @@
   padding: 10px;
   text-align:center;
 }
+
+.text_container {
+  text-align:center;
+  margin: 33px;
+}
+
+header {display: flex;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.8;
+  max-width: 1656px;
+  padding: 0 32px;
+  width: 100%;
+ 
+}
+
+li {list-style: none;
+ margin-right: 40px;
+}
