@@ -13,12 +13,12 @@
 
  # 準備 
 
-  $ git clone git@github.com:git@github.com:misakiarita/Meet.git
-  $ cd Meet
-  $ bundle install
-  $ yarn install
-  $ rails db:create && rails db:migrate
-  $ rails s
+  $ git clone git@github.com:git@github.com:misakiarita/Meet.git  
+  $ cd Meet  
+  $ bundle install  
+  $ yarn install  
+  $ rails db:create && rails db:migrate  
+  $ rails s  
 
  # アプリケーション実行
   $ rails s
