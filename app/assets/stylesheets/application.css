@@ -14,6 +14,7 @@
  *= require_self
  */
  .container {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
@@ -22,26 +23,53 @@
   flex-basis: 33%;
   box-sizing: border-box;
   padding: 10px;
-  text-align:center;
+  align-items: center;
 }
 
-.header {
+.header-list {
   display: flex;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.8;
-  max-width: 1656px;
+  background-color: #d2b48c;
+}
+
+.horizontal-list {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  text-align:right;
+}
+.horizontal-list li {
+  margin-left: 10px; /* 項目間の余白を設定 */
 }
 
 li {
   list-style: none;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 .view_container{
   text-align: center;
+  margin: 0 auto;
 }
 
 .admintable{
   margin: 0 auto;
+}
+
+.view_footer {
+  position: fixed; /* 要素を固定位置に配置 */
+  bottom: 0; /* ページの下端に配置 */
+  left: 0; /* ページの左端に配置 */
+  width: 100%; /* 要素の幅を100%にする */
+  background-color: #ccc; /* 背景色を灰色に設定 */
+  padding: 10px; /* 上下左右に余白を設定 */
+  text-align: center;
+}
+
+.view_container .top-paragraph{
+
+  height: 200px; /* 要素の高さを指定 */
+  position: fixed; /* 要素の位置を固定する */
+  top: 50%; /* 要素の上端を画面の中央に合わせる */
+  left: 50%; /* 要素の左端を画面の中央に合わせる */
+  transform: translate(-50%, -50%); /* 要素を中央に微調整する */
 }
