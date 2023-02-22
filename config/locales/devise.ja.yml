@@ -1,0 +1,59 @@
+ja:
+  devise:
+    confirmations:
+      confirmed: 'アカウントが確認されました。'
+    passwords:
+      send_instructions: 'パスワードのリセット方法をメールで送信しました。'
+      updated: 'パスワードが更新されました。'
+      updated_not_active: 'パスワードが更新されましたが、アカウントはアクティブ化されていません。'
+      updated_inactive: 'パスワードが更新されましたが、アカウントはアクティブ化されていません。'
+      reset: 'パスワードがリセットされました。'
+      no_token: 'パスワードのリセットに必要な情報が提供されていません。'
+      send_paranoid_instructions: 'このメールアドレスが登録されているアカウントについて、パスワードのリセット方法を送信しました。'
+    registrations:
+      signed_up: 'アカウントが登録されました。'
+      signed_up_but_unconfirmed: 'アカウントが登録されましたが、メールでの確認が必要です。'
+      signed_up_but_inactive: 'アカウントが登録されましたが、アクティブ化が必要です。'
+      signed_up_but_locked: 'アカウントがロックされています。'
+      updated: 'アカウントが更新されました。'
+      destroyed: 'アカウントが削除されました。'
+      new:
+        email: "メールアドレス"
+        avatar: "顔写真"
+        name: "名前"
+        role: "用途"
+        address: "住所"
+        user_age: "年齢"
+        profile: "プロフィール"
+        name: "名前"
+        role: "区分"
+        address: "住所"
+        user_age: "年齢"
+        signup: "新規登録"
+      edit:
+        email: "メールアドレス"
+        avatar: "顔写真"
+        name: "名前"
+        role: "用途"
+        address: "住所"
+        user_age: "年齢"
+        profile: "プロフィール"
+        name: "名前"
+        role: "区分"
+        address: "住所"
+        user_age: "年齢"
+        update: "変更保存"
+    sessions:
+      signed_in: 'ログインしました。'
+      signed_out: 'ログアウトしました。'
+      new: 
+        login: 'ログイン'
+    unlocks:
+      send_instructions: 'アカウントのロック解除方法をメールで送信しました。'
+      unlocked: 'アカウントがロック解除されました。'
+      send_paranoid_instructions: 'このメールアドレスが登録されているアカウントについて、ロック解除方法を送信しました。'
+    errors:
+      full_messages:
+        format: '%{attribute} %{message}'
+      messages:
+        not_found: '見つかりませんでした。'

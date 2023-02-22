@@ -1,8 +1,9 @@
-<h1>User Profile</h1>
+<h1>プロフィール</h1>
 
 <p>名前 : <%= @user.name %></p>
 <p>メールアドレス : <%= @user.email %></p>
 <p>ロール : <%= @user.role %></p>
+<p>居住地 : <%= @user.address %></p>
 
 <%= link_to "お気に入り", favorite_pet_user_path(current_user.id) %>
 <% if @user.admin? %>

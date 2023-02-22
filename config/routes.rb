@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
-
-  root 'top#index'
-
   
+  root 'top#index'
   
   devise_for :users
   post 'guest_login', to: 'top#guest_login'
   post 'admin_guest_login', to: 'top#admin_guest_login'
-
+  
 
   resources :users do
     member do
@@ -29,8 +27,6 @@ Rails.application.routes.draw do
   end
 
   resources :evaluations
-
-
 
   resources :favorites, only: [:create, :destroy]
   if Rails.env.development?

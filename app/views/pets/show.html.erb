@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<div class="view_container"> 
 <% unless @pet.user_id == current_user.id %>
 
   <%= link_to 'この投稿のユーザーを評価する', new_evaluation_path(organization_user_id: @pet.user_id), method: :get %>
@@ -29,16 +29,19 @@
     <% end %>
     <% end %>
     <br>
-  <strong>Pet name:</strong>
+  <strong>仮の名前:</strong>
   <%= @pet.pet_name %>
-  <strong>Pet address:</strong>
+  <br>
+  <strong>譲渡可能地域:</strong>
   <%= @pet.pet_address %>
-  <strong>qualify age:</strong>
-  <%= @pet.qualify_age %>
-  <strong>Pet status:</strong>
+  <strong>譲渡年齢制限:</strong>
+  <%= @pet.qualify_age %>歳
+  <br>
+  <strong>譲渡ステータス:</strong>
   <%= @pet.status %>
-  <strong>Pet price:</strong>
-  <%= @pet.price %>
+  <strong>譲渡金額:</strong>
+  <%= @pet.price %>円
+  <br>
   <% if current_user.present? %>
     <% if current_user ==  @user%>
       <%= link_to '基本情報編集', edit_pet_path(@pet) %> 
@@ -46,20 +49,21 @@
   <% end %>
 </p>
 <% @features.each do |feature| %>
-  <strong>cat or dog:</strong>
+  <strong>種類:</strong>
   <%= feature.dog_or_cat %>
-  <strong>color:</strong>
+  <strong>色:</strong>
   <%= feature.color %>
-  <strong>weight:</strong>
-  <%= feature.weight %>
-  <strong>Pet age:</strong>
-  <%= feature.pet_age %>
-  <strong>note:</strong>
-  <%= feature.note %>
-  <strong>Pet sex:</strong>
+  <strong>体重:</strong>
+  <%= feature.weight %>kg
+  <strong>年齢:</strong>
+  <%= feature.pet_age %>歳
+  <strong>性別:</strong>
   <%= feature.sex %>
+  <br>
+  <strong>概要:</strong>
+  <%= feature.note %>
 <% end %>
-
+<div class="view_container"> 
 <% if current_user.present? %>
   <% if current_user ==  @user%>
     <%= link_to '詳細編集', edit_pet_feature_path(@features) %> 

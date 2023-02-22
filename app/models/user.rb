@@ -7,7 +7,9 @@ class User < ApplicationRecord
   has_many :favorite_pets, through: :favorites, source: :pet
   has_many :evaluations  
   enum role: {general:1, organization:2, admin:3}
-  enum limited_role: { general: 1, organization: 2 }, _prefix: true 
+  validates :role, inclusion: { in: roles.keys }
+  
+  enum limited_role: { general:1, organization:2 }, _prefix: true 
   enum address:{
     "---":0,
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
