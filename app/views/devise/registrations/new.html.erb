@@ -22,7 +22,7 @@
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> 文字以上で入力して下さい。)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
@@ -33,23 +33,23 @@
   </div>
 
   <div class="field">
-  <%= f.label t('devise.registrations.new.role') %>
-  <%= f.select :role, User.limited_roles.keys %>
+    <%= f.label t('devise.registrations.new.role') %>
+    <%= f.select :role, User.limited_roles.keys %>
   </div>
 
   <div class="field">
-  <%= f.label t('devise.registrations.new.address') %>
-  <%= f.select :address, User.addresses.keys %>
+    <%= f.label t('devise.registrations.new.address') %>
+    <%= f.select :address, User.addresses.keys %>
   </div>
 
   <div class="field">
-  <%= f.label t('devise.registrations.new.user_age') %><br />
-  <%= f.number_field :user_age, min:1, autofocus: true %>
+    <%= f.label t('devise.registrations.new.user_age') %><br />
+    <%= f.number_field :user_age, min:1, autofocus: true %>
   </div>
 
   <div class="field">
-  <%= f.label  t('devise.registrations.new.profile') %><br />
-  <%= f.text_area :profile, autofocus: true %>
+    <%= f.label  t('devise.registrations.new.profile') %><br />
+    <%= f.text_area :profile, autofocus: true %>
   </div>
 
 

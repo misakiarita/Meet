@@ -29,16 +29,17 @@
     <% end %>
     <% end %>
     <br>
-  <strong>Pet name:</strong>
+  <strong>仮の名前:</strong>
   <%= @pet.pet_name %>
   <br>
-  <strong>Pet address:</strong>
+  <strong>譲渡可能地域:</strong>
   <%= @pet.pet_address %>
-  <strong>qualify age:</strong>
+  <strong>譲渡年齢制限:</strong>
   <%= @pet.qualify_age %>歳
-  <strong>Pet status:</strong>
+  <br>
+  <strong>譲渡ステータス:</strong>
   <%= @pet.status %>
-  <strong>Pet price:</strong>
+  <strong>譲渡金額:</strong>
   <%= @pet.price %>円
   <br>
   <% if current_user.present? %>
@@ -48,18 +49,18 @@
   <% end %>
 </p>
 <% @features.each do |feature| %>
-  <strong>cat or dog:</strong>
+  <strong>種類:</strong>
   <%= feature.dog_or_cat %>
-  <strong>color:</strong>
+  <strong>色:</strong>
   <%= feature.color %>
-  <strong>weight:</strong>
+  <strong>体重:</strong>
   <%= feature.weight %>kg
-  <strong>Pet age:</strong>
+  <strong>年齢:</strong>
   <%= feature.pet_age %>歳
-  <strong>Pet sex:</strong>
+  <strong>性別:</strong>
   <%= feature.sex %>
   <br>
-  <strong>note:</strong>
+  <strong>概要:</strong>
   <%= feature.note %>
 <% end %>
 <div class="view_container"> 
