@@ -16,10 +16,21 @@ gem 'cancancan'
 gem 'net-smtp'
 gem 'net-imap'
 gem 'net-pop'
+gem 'devise'
+gem 'rexml'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'devise-i18n'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
+  gem 'spring'
+  gem 'rspec-rails'
+  gem 'spring-commands-rspec'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'launchy'
 end
 
 group :development do
@@ -37,8 +48,3 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'devise'
-gem 'rexml'
-gem 'carrierwave'
-gem 'mini_magick'
-gem 'devise-i18n'
