@@ -13,10 +13,12 @@
 
  # 準備 
 
-  $ rails _6.1.6_ new Meet -d postgresql  
-  $ rails db:create  
-  $ rails db:migrate  
-  $ rails db:seed  
+  $ git clone git@github.com:git@github.com:misakiarita/Meet.git
+  $ cd Meet
+  $ bundle install
+  $ yarn install
+  $ rails db:create && rails db:migrate
+  $ rails s
 
  # アプリケーション実行
   $ rails s
