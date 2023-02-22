@@ -20,29 +20,29 @@
 
 
   <div class="field">
-    <%= form.label :pet_name %>
+    <div>名前</div>
     <%= form.text_field :pet_name %>
   </div>
 
   <div class="field">
-    <%= form.label :pet_address %>
+    <div>譲渡地域</div>
     <%= form.select :pet_address, Pet.pet_addresses.keys %>
   </div>
 
   <div class="field">
-    <%= form.label :qualify_age %>
-    <%= form.number_field :qualify_age, min:1 %>
+    <div>譲渡年齢制限</div>
+    <%= form.number_field :qualify_age, min:1 %>歳以下
   </div>
 
   <div class="field">
-  <%= form.label :status %>
+  <div>譲渡状況</div>
   <%= form.select :status, Pet.statuses.keys %>
 
   </div>
 
   <div class="field">
-  <%= form.label :price %>
-  <%= form.number_field :price, min:0 %>
+  <div>譲渡金額</div>
+  <%= form.number_field :price, min:0 %>円
   </div>
 
   <div class="actions">

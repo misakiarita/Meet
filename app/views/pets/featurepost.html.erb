@@ -1,25 +1,27 @@
 <%= form_with model: [@pet, @feature], url: pet_features_path(@pet)  do |f| %>
   
-  <%= f.label :dog_or_cat %>
-  <%= f.select :dog_or_cat, Feature.species.keys %>
+  <div>種類</div>
+  <%= f.select :dog_or_cat, Feature.dog_or_cats.keys %>
 
-  <%= f.label :color %>
+  <div>色</div>
   <%= f.text_field :color %>
   
-  <%= f.label :weight %>
+  <div>体重</div>
   <%= f.number_field :weight, min:0 %>kg
   
-  <%= f.label :pet_age %>
+  <div>ペットの年齢</div>
   <%= f.number_field :pet_age %>歳
   
-  <%= f.label :note %>
+  <div>性別</div>
+  <%= f.select :sex, Feature.sexes.keys %>
+
+  <div>その他</div>
   <%= f.text_area :note %>
   
-  <%= f.label :sex %>
-  <%= f.select :sex, Feature.sexes.keys %>
+  
 
   <%= f.hidden_field :pet_id, value: @pet.id %>
  
 <br>
-  <%= f.submit "submit" %>
+  <%= f.submit "登録" %>
 <% end %>
