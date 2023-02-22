@@ -27,8 +27,10 @@
 }
 
 .header-list {
-  display: flex;
+  height: 60px;
+  padding: 10px;
   background-color: #d2b48c;
+  width:auto;
 }
 
 .horizontal-list {
