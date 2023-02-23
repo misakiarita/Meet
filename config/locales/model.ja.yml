@@ -1,0 +1,27 @@
+ja:
+  activerecord:
+    models:
+      pet: 'ペット'
+      user: 'ユーザー'
+      favorite: 'お気に入り'
+      conversation: 'チャットルーム'
+      message: 'メッセージ'
+    attributes:
+      favorite:
+        user_id: ユーザーID
+        task_id: タスクID
+      pet:
+        pet_name: '名前'
+        qualify_age: '年齢'
+        price: '譲渡金額'
+      user:
+        name: '名前'
+        avatar: 'アバター'
+        email: 'メールアドレス'
+        current_password: '現在のパスワード'
+        password: 'パスワード'
+        password_confirmation: '確認用パスワード'
+        user_age: '年齢'
+      message:
+        body: 'メッセージ内容'
+

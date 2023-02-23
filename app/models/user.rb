@@ -8,7 +8,12 @@ class User < ApplicationRecord
   has_many :evaluations  
   enum role: {general:1, organization:2, admin:3}
   validates :role, inclusion: { in: roles.keys }
+  validates :name, presence: true
+  validates :address, presence: true
+  validates :role, presence: true
+  validates :user_age, presence: true
   
+
   enum limited_role: { general:1, organization:2 }, _prefix: true 
   enum address:{
     "---":0,
