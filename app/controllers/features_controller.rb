@@ -18,7 +18,7 @@ class FeaturesController < ApplicationController
   def update
     @feature = Feature.find(params[:id])
     if @feature.update(feature_params)
-      redirect_to pets_path, notice: "Your Feature was edited!"   
+      redirect_to pets_path, notice: "詳細内容を編集しました！"   
     else
       render :edit
     end

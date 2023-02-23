@@ -1,7 +1,7 @@
 <%= form_with(model: pet) do |form| %>
   <% if pet.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+      <h2><%= pluralize(pet.errors.count, "件") %> のエラーが発生しているので保存に失敗しました。:</h2>
 
       <ul>
         <% pet.errors.each do |error| %>
@@ -21,17 +21,17 @@
 
   <div class="field">
     <div>名前</div>
-    <%= form.text_field :pet_name %>
+    <%= form.text_field :pet_name, placeholder: 'ペットの名前' %>
   </div>
 
   <div class="field">
     <div>譲渡地域</div>
-    <%= form.select :pet_address, Pet.pet_addresses.keys %>
+    <%= form.select :pet_address, Pet.pet_addresses.keys, placeholder: '譲渡可能な地域' %>
   </div>
 
   <div class="field">
     <div>譲渡年齢制限</div>
-    <%= form.number_field :qualify_age, min:1 %>歳以下
+    <%= form.number_field :qualify_age, min:1, placeholder: '譲渡年齢制限' %>歳以下
   </div>
 
   <div class="field">
@@ -42,7 +42,7 @@
 
   <div class="field">
   <div>譲渡金額</div>
-  <%= form.number_field :price, min:0 %>円
+  <%= form.number_field :price, min:0, placeholder: '譲渡金額を入力' %>円
   </div>
 
   <div class="actions">

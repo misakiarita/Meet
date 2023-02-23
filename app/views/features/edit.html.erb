@@ -4,16 +4,16 @@
   <%= f.select :dog_or_cat, Feature.dog_or_cats.keys %>
 
   <%= f.label :color %>
-  <%= f.text_field :color %>
+  <%= f.text_field :color, placeholder: '毛色を記入して下さい' %>
   
   <%= f.label :weight %>
-  <%= f.number_field :weight, min:0 %>kg
+  <%= f.number_field :weight, min:0, placeholder: 'わんちゃん、ねこちゃんの体重' %>kg
   
   <%= f.label :pet_age %>
-  <%= f.number_field :pet_age %>歳
+  <%= f.number_field :pet_age, placeholder: 'わんちゃん、ねこちゃんの年齢' %>歳
   
   <%= f.label :note %>
-  <%= f.text_area :note %>
+  <%= f.text_area :note, placeholder: '自由記入欄' %>
   
   <%= f.label :sex %>
   <%= f.select :sex, Feature.sexes.keys %>

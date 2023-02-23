@@ -84,7 +84,7 @@ class PetsController < ApplicationController
     if @pet.user_id == current_user.id
       respond_to do |format|
         if @pet.update(pet_params)
-          format.html { redirect_to pet_url(@pet), notice: "Pet was successfully updated." }
+          format.html { redirect_to pet_url(@pet), notice: "投稿を編集しました。" }
           format.json { render :show, status: :ok, location: @pet }
         else
           format.html { render :edit, status: :unprocessable_entity }
@@ -99,7 +99,7 @@ class PetsController < ApplicationController
     @pet.destroy
 
     respond_to do |format|
-      format.html { redirect_to pets_url, notice: "Pet was successfully destroyed." }
+      format.html { redirect_to pets_url, notice: "投稿を削除しました。" }
       format.json { head :no_content }
     end
   end
