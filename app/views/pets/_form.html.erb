@@ -1,7 +1,7 @@
 <%= form_with(model: pet) do |form| %>
   <% if pet.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+      <h2><%= pluralize(pet.errors.count, "件") %> のエラーが発生しているので保存に失敗しました。:</h2>
 
       <ul>
         <% pet.errors.each do |error| %>
@@ -21,7 +21,7 @@
 
   <div class="field">
     <div>名前</div>
-    <%= form.text_field :pet_name, placeholder: 'わんちゃん、ねこちゃんの名前' %>
+    <%= form.text_field :pet_name, placeholder: 'ペットの名前' %>
   </div>
 
   <div class="field">
