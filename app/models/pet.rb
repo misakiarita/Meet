@@ -1,5 +1,11 @@
 class Pet < ApplicationRecord
   belongs_to :user
+  validates :pet_name, presence: true
+  validates :pet_address, presence: true
+  validates :qualify_age, presence: true
+  validates :status, presence: true
+  validates :price, presence: true
+
   has_many :petpics, dependent: :destroy
   has_many :features, dependent: :destroy
   has_many :favorites, dependent: :destroy

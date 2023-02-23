@@ -1,10 +1,11 @@
 <body>
- 
+
 <% if @over_ten %>
 <%= link_to '以前のメッセージ', '?m=all' %>
 <% end %>
 
-  <div class="ui segment">
+  
+<div class="ui segment">
     <% if @messages.present? %>
       <% @messages.each do |message| %>
         <% if message.body.present? %>
@@ -28,8 +29,20 @@
   </div>
   
   <%= form_with(model: [@conversation, @message]) do |f| %>
+    
+    <% if @message.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+        <ul>
+        <% @message.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <div class="field">
-    <%= f.text_area :body, class: "form-control" %>
+    <%= f.text_area :body, class: "form-control", placeholder: 'メッセージを入力して下さい。' %>
     </div>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :conversation_id, value: current_user.id %>

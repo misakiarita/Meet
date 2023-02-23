@@ -2,8 +2,8 @@
 
 <%= form_with( model:Pet.new, local: true, method: :get, url: pets_path) do |f| %>
   <table>
-  <th>種類: <%= f.select :dog_or_cat, [["",""], ["犬", 1], ["猫", 2]] %></th>
-  <th>年齢制限: <%= f.text_field :qualify_age, min:0 %></th>
+  <th>種類: <%= f.select :dog_or_cat, [["",""], ["犬", 1], ["猫", 2]] %>|</th>
+  <th>年齢制限: <%= f.number_field :qualify_age, min:0 %>歳以下|</th>
   <th>都道府県: <%= f.select :pet_address, Pet.pet_addresses.keys, include_blank: true %></th>
 
   <th> <%= f.submit '検索', class: 'btn btn-primary' %></th>

@@ -1,4 +1,5 @@
 class Conversation < ApplicationRecord
+  
     # 会話はどのUserが作成しているか、どのPet(案件)に属しているか
     belongs_to :user
     belongs_to :pet

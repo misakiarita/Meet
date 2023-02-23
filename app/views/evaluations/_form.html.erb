@@ -8,7 +8,7 @@
     </div>
     <div class="field">
     <%= form.label :evaluation_comment %>
-    <%= form.text_area :evaluation_comment %>
+    <%= form.text_area :evaluation_comment, placeholder: 'コメントをご記入ください'%>
     </div>
     <div class="field">
     <%= form.hidden_field :organization_user_id, value: @organization_user_id %>
