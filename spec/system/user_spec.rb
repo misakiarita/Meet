@@ -14,6 +14,20 @@ RSpec.describe 'ユーザー登録機能', type: :system do
         click_on 'プロフィール'
         expect(page).to have_content 'user1'
       end
+    end
+  end
+
+  describe 'セッション機能のテスト' do    
+    context 'ログインした後' do
+      it 'プロフィール画面にアクセスできる' do
+        user = FactoryBot.create(:user)        
+        visit new_user_session_path
+        fill_in 'user[email]', with: 'user1@gmail.com'
+        fill_in 'user[password]', with: 'user1@gmail.com'
+        page.all(:link_or_button, 'ログイン')[1].click
+        visit user_path(user.id)
+        expect(page).to have_content 'user1'
+      end
     end 
   end
 end

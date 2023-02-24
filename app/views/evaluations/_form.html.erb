@@ -1,13 +1,24 @@
 <%= form_with(model: @evaluation) do |form| %>
+  <% if @evaluation.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@evaluation.errors.count, "件") %> のエラーが発生しているので保存に失敗しました。:</h2>
+
+    <ul>
+      <% @evaluation.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
     <div class="field">
-    <%= form.label :point %>
+    <h3>評価点</h3>
     1~5で入力して下さい。
     <br>
     <%= form.number_field :point, min:1, max:5 %>
     </div>
     <div class="field">
-    <%= form.label :evaluation_comment %>
+    <h3>コメント</h3>
     <%= form.text_area :evaluation_comment, placeholder: 'コメントをご記入ください'%>
     </div>
     <div class="field">

@@ -61,12 +61,10 @@ html{
   position: relative;
 }
 
-li {
+ul {
   list-style: none;
   margin-right: 10px;
 }
-
-
 
 .view_container{
   text-align: center;
@@ -103,4 +101,8 @@ footer {
 
 .field_with_errors {
   display: contents;
+}
+
+#error_explanation li::marker {
+  content: none;
 }

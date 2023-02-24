@@ -12,6 +12,7 @@ module Meet
     config.load_defaults 6.1
     config.i18n.available_locales = [:en, :ja] # 使用する言語の指定
     config.i18n.default_locale = :ja # デフォルトの言語を指定
+    
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
