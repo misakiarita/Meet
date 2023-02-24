@@ -34,7 +34,10 @@
 
   <div class="field">
     <%= f.label t('devise.registrations.new.role') %>
+    <i>譲渡希望の方は'general'、<br>保護団体の方は'organization'</i><br>
+    <i>からご選択ください。</i><br>
     <%= f.select :role, User.limited_roles.keys %>
+    
   </div>
 
   <div class="field">

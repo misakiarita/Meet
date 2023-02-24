@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  rescue_from ActiveRecord::InvalidForeignKey, with: :invalid_foreign_key
+
   def current_ability
     if user_signed_in?
       @current_ability ||= ::UserAbility.new(current_user)
@@ -20,5 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   private
- 
+  def invalid_foreign_key
+    redirect_to admin_users_path, notice: 'このユーザーは削除できません。会話中のチャットが存在します。'
+  end
 end
