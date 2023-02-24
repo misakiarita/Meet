@@ -22,6 +22,10 @@ ja:
         password: 'パスワード'
         password_confirmation: '確認用パスワード'
         user_age: '年齢'
+        role_organization: '保護団体'
+        role_general: '一般'
       message:
         body: 'メッセージ内容'
+      evaluation:
+        point: '評価点'
 

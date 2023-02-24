@@ -12,6 +12,10 @@ class User < ApplicationRecord
   validates :address, presence: true
   validates :role, presence: true
   validates :user_age, presence: true
+
+  def status_i18n
+    I18n.t("activerecord.attributes.model_name.role_#{role}")
+  end
   
 
   enum limited_role: { general:1, organization:2 }, _prefix: true 
