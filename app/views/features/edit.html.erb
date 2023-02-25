@@ -1,25 +1,27 @@
 <%= form_with model: [@pet, @feature]  do |f| %>
   
-  <%= f.label :dog_or_cat %>
+  <div>種類</div>
   <%= f.select :dog_or_cat, Feature.dog_or_cats.keys %>
 
-  <%= f.label :color %>
+  <div>色</div>
   <%= f.text_field :color, placeholder: '毛色を記入して下さい' %>
   
-  <%= f.label :weight %>
+  <div>体重</div>
   <%= f.number_field :weight, min:0, placeholder: 'わんちゃん、ねこちゃんの体重' %>kg
   
-  <%= f.label :pet_age %>
+  <div>ペットの年齢</div>
   <%= f.number_field :pet_age, placeholder: 'わんちゃん、ねこちゃんの年齢' %>歳
   
-  <%= f.label :note %>
-  <%= f.text_area :note, placeholder: '自由記入欄' %>
-  
-  <%= f.label :sex %>
+  <div>性別</div>
   <%= f.select :sex, Feature.sexes.keys %>
+
+  <div>その他</div>
+  <%= f.text_area :note, placeholder: '自由入力欄' %>
+  
+  
 
   <%= f.hidden_field :pet_id, value: @pet.id %>
  
 <br>
-  <%= f.submit "submit" %>
+  <%= f.submit "更新する" %>
 <% end %>

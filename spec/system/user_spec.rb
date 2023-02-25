@@ -22,7 +22,6 @@ RSpec.describe 'ユーザー登録機能', type: :system do
     context 'ログインした後' do
       it 'プロフィール画面にアクセスできる' do
         user = FactoryBot.create(:user) 
-
         visit new_user_session_path
         fill_in 'user[email]', with: 'user1@gmail.com'
         fill_in 'user[password]', with: 'user1@gmail.com'
@@ -37,9 +36,7 @@ RSpec.describe 'ユーザー登録機能', type: :system do
         fill_in 'user[email]', with: 'user1@gmail.com'
         fill_in 'user[password]', with: 'user1@gmail.com'
         page.all(:link_or_button, 'ログイン')[1].click
-
         visit pets_path
-
         expect(page).to have_content '詳細ページ'
       end
     end
@@ -64,12 +61,12 @@ RSpec.describe 'ユーザー登録機能', type: :system do
         fill_in 'user[password]', with: 'user2@gmail.com'
         page.all(:link_or_button, 'ログイン')[1].click
         visit pets_path
-        expect(page).not_to have_content '新規登録'
+        expect(page).not_to have_content '新規投稿'
       end
     end
 
-    context 'adminユーザがログインすると' do  
-      it 'ペット新規投稿のリンクがない' do
+    context '管理者がログインすると' do  
+      it '投稿一覧画面に管理者メニューリンクが表示される' do
         user = FactoryBot.create(:admin_user)
         visit new_user_session_path
         fill_in 'user[email]', with: 'user3@gmail.com'
@@ -91,6 +88,21 @@ RSpec.describe 'ユーザー登録機能', type: :system do
           page.all(:link_or_button, 'ログイン')[1].click
           visit admin_users_path
           expect(page).to have_content 'user2'
+        end
+      end
+
+      context '管理者が管理者メニューにアクセスすると' do
+        it 'ユーザーの一覧を閲覧できるできる' do
+          FactoryBot.create(:second_user)
+          user = FactoryBot.create(:admin_user)
+          visit new_user_session_path
+          fill_in 'user[email]', with: 'user3@gmail.com'
+          fill_in 'user[password]', with: 'user3@gmail.com'
+          page.all(:link_or_button, 'ログイン')[1].click
+          visit admin_users_path
+          click_on '削除', match: :first
+          expect(page.accept_confirm).to eq "本当に削除しますか？"
+          expect(page).not_to have_content 'user2'
         end
       end
 
