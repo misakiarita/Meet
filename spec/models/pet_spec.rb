@@ -54,9 +54,10 @@ RSpec.describe 'Petモデル機能', type: :model do
 
     current_user = User.find_by(email: "user1@gmail.com")
     let!(:pet) {Pet.create(pet_name:'太郎', pet_address: 1, qualify_age: '30', status: 1, price: '10000', user_id: current_user.id)}
-    # let!(:feature) = {Feature.create(dog_or_cat:1, color: '黒', weight:'3', pet_age:'3', sex:1, pet_id: @pet.id)}  
+    let!(:feature) {Feature.create(dog_or_cat:1, color: '黒', weight:'3', pet_age:'3', sex:1, pet_id: pet.id)}  
     let!(:second_pet) {Pet.create(pet_name:'小次郎', pet_address: 2, qualify_age: '60', status: 1, price: '10000', user_id: current_user.id)}
-    # let!(:second_feature) {Feature.create(dog_or_cat:2, color: '白', weight:'3', pet_age:'3', sex:1, pet_id: @second_pet.id)}
+    let!(:second_feature) {Feature.create(dog_or_cat:2, color: '白', weight:'3', pet_age:'3', sex:1, pet_id: second_pet.id)}
+  
     context 'scopeメソッドでタ年齢検索をした場合'  do
       it "検索キーワードを含むタスクで絞り込まれる" do
 
@@ -67,13 +68,42 @@ RSpec.describe 'Petモデル機能', type: :model do
       end
     end
 
-    context 'scopeメソッドでタ年齢検索をした場合'  do
-      it "検索キーワードを含むタスクで絞り込まれる" do
-        # expect(Task.address_search(30)).not_to include(second_feature)
-        # expect(Task.species_search(30).count).to eq 1
+    context 'scopeメソッドで年齢検索をした場合'  do
+      it "指定年齢以上を含む投稿で絞り込まれる" do
+
+        expect(Pet.address_search(2)).to include(second_pet)
+        expect(Pet.address_search(2)).not_to include(pet)
+        expect(Pet.address_search(2).pluck(:pet_name)).not_to include('太郎')
 
       end
     end
+
+    context 'scopeメソッドで住所検索をした場合'  do
+      it "指定住所を含む投稿で絞り込まれる" do
+
+        expect(Pet.address_search(2)).to include(second_pet)
+        expect(Pet.address_search(2)).not_to include(pet)
+        expect(Pet.address_search(2).pluck(:pet_name)).not_to include('太郎')
+
+      end
+    end
+
+    context 'scopeメソッドで種類検索をした場合'  do
+      it "指定した種類を含む投稿で絞り込まれる" do
+ 
+        expect(Pet.species_search(2).pluck(:pet_name)).to include('小次郎')
+
+      end
+    end
+
+    context 'scopeメソッドで種類検索をした場合'  do
+      it "指定した年齢と種類を含む投稿で絞り込まれる" do
+ 
+        expect(Pet.age_species(60,2).pluck(:pet_name)).to include('小次郎')
+
+      end
+    end
+
   end
 
 end
