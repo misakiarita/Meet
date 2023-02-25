@@ -12,4 +12,14 @@ RSpec.describe '評価モデル機能', type: :model do
       end
     end
   end
+
+  describe 'バリデーションのテスト' do
+    context '評価が記入されているの場合' do
+      it 'バリデーションにひっかからない' do
+        evaluation= Evaluation.create(point: 5, evaluation_comment: '失敗テスト', user_id: @current_user.id)
+        expect(evaluation).to be_valid
+      end
+    end
+  end
+
 end
