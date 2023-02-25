@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe 'ユーザー登録機能', type: :system do
-  describe '一般ユーザ登録のテスト' do
-    context '一般ユーザー新規作成した場合' do
+  describe 'ユーザ登録のテスト' do
+    context 'ユーザー新規作成した場合' do
       it 'プロフィール画面にアクセスできる' do
         visit new_user_registration_path
         fill_in 'user[name]', with: 'user1'
@@ -17,10 +17,12 @@ RSpec.describe 'ユーザー登録機能', type: :system do
     end
   end
 
+
   describe 'セッション機能のテスト' do    
     context 'ログインした後' do
       it 'プロフィール画面にアクセスできる' do
-        user = FactoryBot.create(:user)        
+        user = FactoryBot.create(:user) 
+
         visit new_user_session_path
         fill_in 'user[email]', with: 'user1@gmail.com'
         fill_in 'user[password]', with: 'user1@gmail.com'
@@ -28,6 +30,32 @@ RSpec.describe 'ユーザー登録機能', type: :system do
         visit user_path(user.id)
         expect(page).to have_content 'user1'
       end
-    end 
+
+      it 'ペット一覧に詳細リンクが押せる' do
+        FactoryBot.create(:feature)
+        visit new_user_session_path
+        fill_in 'user[email]', with: 'user1@gmail.com'
+        fill_in 'user[password]', with: 'user1@gmail.com'
+        page.all(:link_or_button, 'ログイン')[1].click
+
+        visit pets_path
+        click_on '投稿一覧'
+        expect(page).to have_content '詳細ページ'
+      end
+    end
+
+    context 'ログアウトをすると' do
+      it 'ログインできるようになる' do
+        FactoryBot.create(:user)
+        visit new_user_session_path
+        fill_in 'user[email]', with: 'user1@gmail.com'
+        fill_in 'user[password]', with: 'user1@gmail.com'
+        page.all(:link_or_button, 'ログイン')[1].click
+        click_on 'ログアウト'
+        expect(page).not_to have_content 'プロフィール'
+      end
+    end
+  #セッション機能のテストのend  
   end
+#RSpec.describeのend
 end
