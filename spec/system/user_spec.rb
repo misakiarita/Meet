@@ -39,7 +39,7 @@ RSpec.describe 'ユーザー登録機能', type: :system do
         page.all(:link_or_button, 'ログイン')[1].click
 
         visit pets_path
-        click_on '投稿一覧'
+
         expect(page).to have_content '詳細ページ'
       end
     end
@@ -55,6 +55,58 @@ RSpec.describe 'ユーザー登録機能', type: :system do
         expect(page).not_to have_content 'プロフィール'
       end
     end
+
+    context '一般ユーザがログインすると' do  
+      it 'ペット新規投稿ができない' do
+        FactoryBot.create(:second_user)
+        visit new_user_session_path
+        fill_in 'user[email]', with: 'user2@gmail.com'
+        fill_in 'user[password]', with: 'user2@gmail.com'
+        page.all(:link_or_button, 'ログイン')[1].click
+        visit pets_path
+        expect(page).not_to have_content '新規登録'
+      end
+    end
+
+    context 'adminユーザがログインすると' do  
+      it 'ペット新規投稿のリンクがない' do
+        user = FactoryBot.create(:admin_user)
+        visit new_user_session_path
+        fill_in 'user[email]', with: 'user3@gmail.com'
+        fill_in 'user[password]', with: 'user3@gmail.com'
+        page.all(:link_or_button, 'ログイン')[1].click
+        visit user_path(user.id)
+        expect(page).to have_content '管理者メニュー'
+      end
+    end
+
+    describe '管理者機能のテスト' do    
+      context '管理者が管理者メニューにアクセスすると' do
+        it 'ユーザーの一覧を閲覧できるできる' do
+          FactoryBot.create(:second_user)
+          user = FactoryBot.create(:admin_user)
+          visit new_user_session_path
+          fill_in 'user[email]', with: 'user3@gmail.com'
+          fill_in 'user[password]', with: 'user3@gmail.com'
+          page.all(:link_or_button, 'ログイン')[1].click
+          visit admin_users_path
+          expect(page).to have_content 'user2'
+        end
+      end
+
+      context '管理者以外が管理者メニューにアクセスすると' do
+        it 'Petの一覧に戻る' do
+          user = FactoryBot.create(:second_user)
+          visit new_user_session_path
+          fill_in 'user[email]', with: 'user2@gmail.com'
+          fill_in 'user[password]', with: 'user2@gmail.com'
+          page.all(:link_or_button, 'ログイン')[1].click
+          visit admin_users_path
+          expect(page).to have_content '投稿一覧'
+        end
+      end
+    end
+      
   #セッション機能のテストのend  
   end
 #RSpec.describeのend
