@@ -7,6 +7,7 @@ class UserAbility
       can :manage, :all
     elsif user.organization?
       can :manage, :all
+
     elsif user.general?
       can :manage, :all
       cannot :update, Pet

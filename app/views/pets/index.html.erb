@@ -12,7 +12,7 @@
 
 <% if user_signed_in? %>
   <% if current_user.organization?  || current_user.admin? %>
-    <h2><%= link_to '新規登録', new_pet_path %></h2>
+    <h2><%= link_to '新規投稿', new_pet_path %></h2>
   <% end %>
 <% end %>
 

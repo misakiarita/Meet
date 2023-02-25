@@ -5,7 +5,8 @@ class User < ApplicationRecord
   has_many :pets       
   has_many :favorites, dependent: :destroy
   has_many :favorite_pets, through: :favorites, source: :pet
-  has_many :evaluations  
+  has_many :evaluations
+  
   enum role: {general:1, organization:2, admin:3}
   validates :role, inclusion: { in: roles.keys }
   validates :name, presence: true
