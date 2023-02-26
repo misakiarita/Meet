@@ -38,7 +38,7 @@ RSpec.describe 'userモデル', type: :model do
 
     context 'ユーザーが記載されているの場合' do
       it 'バリデーションにひっかからない' do
-        user = User.create(name:'たなか', email: 'tanaka@1.com', password:'tanaka@1.com', role:1, address:1, user_age:'' )
+        user = User.create(name:'たなか', email: 'tanaka@1.com', password:'tanaka@1.com', role:1, address:1, user_age:'18' )
         expect(user).to be_valid
       end
     end

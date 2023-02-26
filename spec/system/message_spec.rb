@@ -9,7 +9,7 @@ RSpec.describe 'メッセージ機能', type: :system do
         fill_in 'user[password]', with: 'user2@gmail.com'
         page.all(:link_or_button, 'ログイン')[1].click
         visit pets_path
-        click_on '詳細ページ'
+        page.all(:link_or_button, '詳細ページ')[1].click
         click_on 'メッセージを送る'
         click_on 'この案件のメッセージ'
         fill_in 'message[body]', with: 'Hello!'
