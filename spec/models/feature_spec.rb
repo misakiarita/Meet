@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe '詳細モデル', type: :model do
   before do
-    user = FactoryBot.create(:user)
+
     @current_user = User.find_by(email: "user1@gmail.com")
     @pet = Pet.create(pet_name:'太郎', pet_address: 1, qualify_age: '30', status: 1, price: '10000', user_id: @current_user.id)
   end

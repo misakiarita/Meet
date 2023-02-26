@@ -33,7 +33,7 @@ RSpec.describe 'ペット登録機能', type: :system do
       fill_in 'user[password]', with: 'user1@gmail.com'
       page.all(:link_or_button, 'ログイン')[1].click
       visit pets_path
-      click_on '詳細ページ'
+      page.all(:link_or_button, '詳細ページ')[1].click
       sleep(2)
       click_on '削除'
       expect(page.accept_confirm).to eq "本当に削除しますか?"
@@ -50,7 +50,7 @@ RSpec.describe 'ペット登録機能', type: :system do
       fill_in 'user[password]', with: 'user1@gmail.com'
       page.all(:link_or_button, 'ログイン')[1].click
       visit pets_path
-      click_on '詳細ページ'
+      page.all(:link_or_button, '詳細ページ')[1].click
       sleep(2)
       click_on '基本情報編集'
       fill_in 'pet[price]', with: '500'
