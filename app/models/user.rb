@@ -2,7 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          mount_uploader :avatar, ImageUploader     
-  has_many :pets       
+  has_many :pets, dependent: :destroy      
   has_many :favorites, dependent: :destroy
   has_many :favorite_pets, through: :favorites, source: :pet
   has_many :evaluations
@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :address, presence: true
   validates :role, presence: true
-  validates :user_age, presence: true
+  validates :user_age, presence: true, numericality: { greater_than_or_equal_to: 10 }
 
   def status_i18n
     I18n.t("activerecord.attributes.model_name.role_#{role}")

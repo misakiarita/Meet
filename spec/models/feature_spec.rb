@@ -21,5 +21,23 @@ RSpec.describe '詳細モデル', type: :model do
       end
     end
 
+    describe 'バリデーションのテスト' do
+      context '年齢項目が0以下の場合' do
+        it 'バリデーションにひっかる' do
+          feature = Feature.create(dog_or_cat:1, color: '失敗テスト', weight:'3', pet_age:'-3', sex:1, pet_id: @pet.id)
+          expect(feature).not_to be_valid
+        end
+      end
+    end
+
+    describe 'バリデーションのテスト' do
+      context '年齢項目が0以上の場合' do
+        it 'バリデーションにひっからない' do
+          feature = Feature.create(dog_or_cat:1, color: '失敗テスト', weight:'3', pet_age:'3', sex:1, pet_id: @pet.id)
+          expect(feature).to be_valid
+        end
+      end
+    end
+
   end
 end

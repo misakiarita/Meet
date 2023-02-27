@@ -93,16 +93,17 @@ RSpec.describe 'ユーザー登録機能', type: :system do
 
       context '管理者が管理者メニューにアクセスすると' do
         it 'ユーザーの一覧を閲覧できるできる' do
-          FactoryBot.create(:second_user)
+          User.create(name:'たなか', email: 'tanaka@1.com', password:'tanaka@1.com', role:1, address:30, user_age:20 )
           user = FactoryBot.create(:admin_user)
           visit new_user_session_path
           fill_in 'user[email]', with: 'user3@gmail.com'
           fill_in 'user[password]', with: 'user3@gmail.com'
           page.all(:link_or_button, 'ログイン')[1].click
           visit admin_users_path
+          sleep(2)
           click_on '削除', match: :first
           expect(page.accept_confirm).to eq "本当に削除しますか？"
-          expect(page).not_to have_content 'user2'
+          expect(page).not_to have_content 'たなか'
         end
       end
 
