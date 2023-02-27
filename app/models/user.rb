@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :address, presence: true
   validates :role, presence: true
-  validates :user_age, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :user_age, presence: true, numericality: { greater_than_or_equal_to: 10 }
 
   def status_i18n
     I18n.t("activerecord.attributes.model_name.role_#{role}")
