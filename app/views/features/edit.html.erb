@@ -10,7 +10,7 @@
   <%= f.number_field :weight, min:0, placeholder: 'わんちゃん、ねこちゃんの体重' %>kg
   
   <div>ペットの年齢</div>
-  <%= f.number_field :pet_age, placeholder: 'わんちゃん、ねこちゃんの年齢' %>歳
+  <%= f.number_field :pet_age, min:0, placeholder: 'わんちゃん、ねこちゃんの年齢' %>歳
   
   <div>性別</div>
   <%= f.select :sex, Feature.sexes.keys %>
