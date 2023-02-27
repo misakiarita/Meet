@@ -50,8 +50,8 @@ RSpec.describe 'userモデル', type: :model do
       end
     end
 
-    context 'user_ageが10以下の場合' do
-      it 'バリデーションにひっかかる' do
+    context 'user_ageが10以上の場合' do
+      it 'バリデーションにひっかからない' do
         user = User.create(name:'たなか', email: 'tanaka@1.com', password:'tanaka@1.com', role:1, address:1, user_age:'10' )
         expect(user).to be_valid
       end
