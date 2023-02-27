@@ -2,7 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          mount_uploader :avatar, ImageUploader     
-  has_many :pets       
+  has_many :pets, dependent: :destroy      
   has_many :favorites, dependent: :destroy
   has_many :favorite_pets, through: :favorites, source: :pet
   has_many :evaluations
