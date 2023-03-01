@@ -42,20 +42,20 @@ class User < ApplicationRecord
   end
 
   def self.admin_guest
-    user = find_or_create_by!(email: "admin_guest@example.com", name: 'ゲスト', address: 3, user_age: 30, role: 3) do |user|
+    user = find_or_create_by!(email: "admin_guest@example.com", name: 'ゲスト(管理者)', address: 3, user_age: 30, role: 3) do |user|
       user.password = SecureRandom.urlsafe_base64
     end
     user
   end
 
   #　会話部屋をつくった人が誰かがわかる
-  has_many :conversations
+  has_many :conversations, dependent: :destroy
   #　一対多：memberテーブルでconversation_idとuser_idが紐づいていることでどの会話部屋に所属しているのかがわかる
-  has_many :members
+  has_many :members, dependent: :destroy
   #　一対多：messageテーブルでどのuserの発言なのかがuser_idと紐づいていることでわかる
-  has_many :messages
+  has_many :messages, dependent: :destroy
   
   # 該当user(conversationの作成者)のidをuser_idとして持つconversationのレコードが参照可能 => それに紐づくpetがわかる
-  has_many :conversations_pets, through: :conversations, source: :user
+  has_many :conversations_pets, through: :conversations, source: :user, dependent: :destroy
 
 end

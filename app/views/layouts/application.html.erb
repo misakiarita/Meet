@@ -15,7 +15,7 @@
     <a href="<%= root_path %>">
       <img src="<%= image_path("meet.png") %>" alt="MeeT">
     </a>
-    <nav>
+
       <ul class="horizontal-list">
           <li><%= link_to 'TOP', root_path %></li>
           <% if user_signed_in? %>
@@ -30,8 +30,7 @@
           <% end %>
             <li><%= link_to '投稿一覧', pets_path %></li>
       </ul>
-    <nav>
-  </div>
+  </header>
     <div>
       <% flash.each do |key, value| %>
       <%= content_tag :div, value, class: "notice #{key}" %>
