@@ -1,7 +1,11 @@
-<h1><%= @user.name %>のお気に入り投稿</h1>
+<h1><%= @user.name %>さんのお気に入り投稿</h1>
+<ul>
 <% @favorites.each do |favorite| %>
- <b>名前：</b>
-  <%= favorite.pet_name %>
-  <%= link_to "詳細", pet_path(favorite) %>
+  <li> 
+    <b>名前：</b> 
+    <%= favorite.pet_name %>
+    <%= link_to "詳細", pet_path(favorite) %>
+  </li>
 <% end %>
+</ul>
 <div class="push"></div>
