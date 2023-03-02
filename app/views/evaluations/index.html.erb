@@ -1,0 +1,9 @@
+<h2>評価一覧</h2>
+<ul>
+<% @averages_by_user.each do |organization_user_id, average|%>
+  <li><b>評価</b></li>
+  <li>Organization User ID: <%= organization_user_id %></li>
+  <li>Average Point: <%= average %></li>
+<%end%>
+<ul>
+
