@@ -1,4 +1,5 @@
 class EvaluationsController < ApplicationController
+
   def new
     @evaluation = Evaluation.new
     # @organization_user_id = @pet.user_id
@@ -15,12 +16,22 @@ class EvaluationsController < ApplicationController
   end
 
 def index
-  evaluations = Evaluation.all.group_by(&:organization_user_id)
-  @averages_by_user = {}
-  evaluations.each do |organization_user_id, evaluations|
-    @averages_by_user[organization_user_id] = evaluations.map(&:point).sum / evaluations.size
-  end 
-  # @evaluation = Evaluation.all
+  if current_user.present?
+    evaluations = Evaluation.all.group_by(&:organization_user_id)
+    @averages_by_user = {}
+    evaluations.each do |organization_user_id, evaluations|
+      @averages_by_user[organization_user_id] = evaluations.map(&:point).sum / evaluations.size
+    end 
+  else 
+    redirect_to root_path
+  end
+
+def show
+  @evaluations = Evaluation.where(organization_user_id: params[:id])
+  @organization_user = User.find(params[:id])
+  render :show, locals: { evaluations: @evaluations, organization_user: @organization_user }
+end
+
 end
 
   private
