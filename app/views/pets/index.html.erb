@@ -1,22 +1,21 @@
 <h1>投稿一覧</h1>
 
-<%= form_with( model:Pet.new, local: true, method: :get, url: pets_path) do |f| %>
-  <table>
-  <th>種類: <%= f.select :dog_or_cat, [["",""], ["犬", 1], ["猫", 2]] %>|</th>
-  <th>年齢制限: <%= f.number_field :qualify_age, min:0 %>歳以下|</th>
-  <th>都道府県: <%= f.select :pet_address, Pet.pet_addresses.keys, include_blank: true %></th>
+<%= form_with( model:Pet.new, class: "search-form", local: true, method: :get, url: pets_path) do |f| %>
+  <ul class="search">
+  <li>種類: <%= f.select :dog_or_cat, [["",""], ["犬", 1], ["猫", 2]] %></li>
+  <li>年齢制限: <%= f.number_field :qualify_age, min:0 %>歳以下</li>
+  <li>都道府県: <%= f.select :pet_address, Pet.pet_addresses.keys, include_blank: true %></li>
 
-  <th> <%= f.submit '検索', class: 'btn btn-primary' %></th>
-  </table>
+  <li> <%= f.submit '検索', class: 'button' %></li>
+  </ul>
 <% end %>
 
 <% if user_signed_in? %>
   <% if current_user.organization?  || current_user.admin? %>
-    <h2><%= link_to '新規投稿', new_pet_path %></h2>
+    <p class = 'new' ><%= link_to '新規投稿+', new_pet_path, class: 'button' %></p>
   <% end %>
 <% end %>
 
-<body>
   <div class="pet-container">
     <% @pets.each do |pet| %>
       <div class="content">    
@@ -46,9 +45,6 @@
       </div>
       <% end %>
   </div>
-</body>
-</table>
-
 <br>
 
 

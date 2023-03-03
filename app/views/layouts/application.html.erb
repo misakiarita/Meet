@@ -11,33 +11,37 @@
 
   <body>
 
-  <div class = "header-list">
-    <h1>MeeT</h1>
-    <ul class="horizontal-list">
-        <li><%= link_to 'TOP', root_path %></li>
-        <% if user_signed_in? %>
-          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-          <li><%= link_to "お気に入り", favorite_pet_user_path(current_user.id) %></li>
-          <li><%= link_to "参加チャット", conversations_path %></li>
-          <li><%= link_to "プロフィール", user_path(current_user.id) %></li>
-          <li><%= link_to 'プロフィール編集', edit_user_registration_path(current_user.id) %></li>
-        <% else %>
-          <li><%= link_to 'ログイン', new_user_session_path %></li>
-          <li><%= link_to 'サインアップ', new_user_registration_path %></li>
-        <% end %>
-          <li><%= link_to '投稿一覧', pets_path %></li>
-      <ul>
-    </div>
+  <header class="clearfix" id="header">
+    <a href="<%= root_path %>">
+      <img src="<%= image_path("meet.png") %>" alt="MeeT">
+    </a>
+
+      <ul class="horizontal-list">
+          <li><%= link_to 'TOP', root_path %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "お気に入り", favorite_pet_user_path(current_user.id) %></li>
+            <li><%= link_to "参加チャット", conversations_path %></li>
+            <li><%= link_to "プロフィール", user_path(current_user.id) %></li>
+            <li><%= link_to 'プロフィール編集', edit_user_registration_path(current_user.id) %></li>
+            <li><%= link_to '評価一覧', evaluations_path %></li>
+          <% else %>
+            <li><%= link_to 'ログイン', new_user_session_path %></li>
+            <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+          <% end %>
+            <li><%= link_to '投稿一覧', pets_path %></li>
+      </ul>
+  </header>
     <div>
-    <% flash.each do |key, value| %>
-    <%= content_tag :div, value, class: "notice #{key}" %>
-    <% end %>
+      <% flash.each do |key, value| %>
+      <%= content_tag :div, value, class: "notice #{key}" %>
+      <% end %>
     </div>
     <br>
     <div class="view_container"> 
     <%= yield %>
     </div> 
-    <footer> 
+    <footer class="footer"> 
       <p>Copyright(C) 2023 Meet All rights reserved.</p>
     </footer> 
   </body>

@@ -1,15 +1,13 @@
-<div class="view_container"> 
-<body>
 
-    <h2>メッセージ一覧</h2>
-    
-    <% @conversations.each do |conversation| %>
-          <b>ペットの名前</b>
-          <%= Pet.find(conversation.pet_id).pet_name %>
-          <br>
-          <%= link_to 'この案件のメッセージ', conversation_messages_path(conversation) %>
-          <br>
-    <% end %>
-    <div class="push"></div>
-    </div>
-  </body>
+<h2>メッセージ一覧</h2>
+
+<% @conversations.each do |conversation| %>
+      <b>ペットの名前</b>
+      <%= Pet.find(conversation.pet_id).pet_name %>
+      <br>
+      <%= link_to 'この案件のメッセージ', conversation_messages_path(conversation) %>
+      <br>
+<% end %>
+<div class="push"></div>
+</div>
+

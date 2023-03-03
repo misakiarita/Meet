@@ -1,0 +1,16 @@
+
+<ul>
+<li><b>団体名：</b><%= organization_user.name %></li>
+<br>
+<% evaluations.each do |evaluation| %>
+  <li>評価ポイント：<%= evaluation.point %></li>
+  <% if evaluation.evaluation_comment.present? %>
+   <li>評価コメント：<%= evaluation.evaluation_comment %></li>
+  <% else %>
+    <li>コメントはありません</li>
+  <% end %>
+  <br>
+<% end %>
+<br>
+<ul>
+

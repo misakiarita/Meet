@@ -1,0 +1,13 @@
+<ul>
+  <h2>評価一覧</h2>
+  <% @averages_by_user.each do |organization_user_id, average|%>
+    <div>
+    <li>評価</li>
+    <li>団体名: <%= User.find(organization_user_id).name %></li>
+    <li>評価ポイント: <%= average %></li>
+    <li><%= link_to '詳細ページ', evaluation_path(organization_user_id) %></li>
+    </div>
+    <br>
+  <%end%>
+</ul>
+

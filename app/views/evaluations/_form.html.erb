@@ -9,7 +9,7 @@
       <% end %>
     </ul>
   </div>
-<% end %>
+  <% end %>
 
     <div class="field">
     <h3>評価点</h3>
@@ -22,7 +22,9 @@
     <%= form.text_area :evaluation_comment, placeholder: 'コメントをご記入ください'%>
     </div>
     <div class="field">
-    <%= form.hidden_field :organization_user_id, value: @organization_user_id %>
+    
+    <%= form.hidden_field :organization_user_id, value: params[:organization_user_id] %>
+
     </div>
 
     <div class="actions">
