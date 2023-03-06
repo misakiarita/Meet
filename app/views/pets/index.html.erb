@@ -30,7 +30,7 @@
         <br>
           <% pet.petpics.each do |pic| %>
             <% if pic.picture.present? %>  
-              <%= image_tag(pic.picture.url) %>
+              <%= image_tag(pic.picture.thumb.url) %>
             <% else %>
               <div>写真の投稿はありません</div>
           <% end %> 

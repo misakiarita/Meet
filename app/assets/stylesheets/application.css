@@ -207,5 +207,7 @@ footer {
   text-decoration: none;
 }
 
-
-
+.pet_show_link li{
+  margin-top: 10px; /* 項目の上に10pxの余白を設定 */
+  margin-bottom: 10px; /* 項目の下に10pxの余白を設定 */
+}
