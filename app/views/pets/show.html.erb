@@ -1,15 +1,14 @@
 
+<ul class="pet_show_link">
 <% unless @pet.user_id == current_user.id %>
-
-  <%= link_to 'この投稿のユーザーを評価する', new_evaluation_path(organization_user_id: @pet.user_id), method: :get %>
-
-<% if @favorite.present? %>
-    <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+    <li><%= link_to 'この投稿のユーザーを評価する', new_evaluation_path(organization_user_id: @pet.user_id), method: :get, class: 'button' %> </li>
+  <% if @favorite.present? %>
+    <li><%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'button' %> </li>
   <% else %>
-    <%= link_to 'お気に入りする', favorites_path(pet_id: @pet.id), method: :post, class: 'btn btn-primary' %>
+    <li><%= link_to 'お気に入りする', favorites_path(pet_id: @pet.id), method: :post, class: 'button' %> </li>
+    <% end %>
   <% end %>
-<% end %>
-<br>
+</ul>
 書いた人:<%= @user.name %>
   <% if @user.id != current_user.id %>
     <% if @conversation.present? %>
